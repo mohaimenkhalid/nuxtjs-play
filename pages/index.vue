@@ -34,7 +34,7 @@ const login = async (e) => {
     e.preventDefault()
     let res = await signIn(
         { ...formData },
-        { callbackUrl: '/about' } // Where the user will be redirected after a successiful login
+        { callbackUrl: '/dashboard' } // Where the user will be redirected after a successiful login
     )
 
     console.log("res", res);
