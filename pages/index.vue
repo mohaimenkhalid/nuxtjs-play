@@ -10,6 +10,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-vue-next'
+import { toast } from 'vue-sonner'
 
 definePageMeta({
   layout: 'auth',
@@ -20,7 +22,7 @@ definePageMeta({
     navigateAuthenticatedTo: '/dashboard',
   },
 })
-
+const isLoading = ref(false)
 const { signIn } = useAuth() // uses the default signIn function provided by nuxt-auth
 const formData = reactive({
   email: 'john@mail.com',
@@ -29,18 +31,20 @@ const formData = reactive({
 
 
 const login = async (e) => {
-  console.log(formData)
+  isLoading.value = true
   try {
     e.preventDefault()
     let res = await signIn(
         { ...formData },
         { callbackUrl: '/dashboard' } // Where the user will be redirected after a successiful login
     )
+    toast.success("Login successfully!")
 
-    console.log("res", res);
-
-  } catch (error) {
-    console.log("error", error);
+  } catch (error: any) {
+    if(error.response._data.message === "Unauthorized") {
+      toast.error("Invalid credential!")
+      isLoading.value = false
+    }
   }
 }
 
@@ -70,7 +74,10 @@ const login = async (e) => {
         </form>
       </CardContent>
       <CardFooter>
-        <Button type="submit" @click="login">Submit</Button>
+        <Button type="submit" @click="login" :disabled="isLoading">
+          <Loader2 v-if="isLoading" class="w-4 h-4 mr-2 animate-spin" />
+          {{ isLoading ? 'processing...' : 'Submit' }}
+        </Button>
       </CardFooter>
     </Card>
   </div>

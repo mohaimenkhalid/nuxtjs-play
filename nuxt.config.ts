@@ -31,6 +31,11 @@ export default defineNuxtConfig({
             token: {
                 signInResponseTokenPointer: '/access_token',
                 type: 'Bearer',
+                cookieName: 'auth.token',
+                // headerName: 'Authorization',
+                // maxAgeInSeconds: 1800,
+                // sameSiteAttribute: 'lax',
+                // cookieDomain: 'sidebase.io'
 
             },
             sessionDataType: {}
