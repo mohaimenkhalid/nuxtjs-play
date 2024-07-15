@@ -29,7 +29,9 @@ export default defineNuxtConfig({
                 login: '/'
             },
             token: {
-                signInResponseTokenPointer: '/access_token'
+                signInResponseTokenPointer: '/access_token',
+                type: 'Bearer',
+
             },
             sessionDataType: {}
         },
@@ -38,6 +40,10 @@ export default defineNuxtConfig({
         globalMiddlewareOptions: {
             allow404WithoutAuth: true, // Defines if the 404 page will be accessible while unauthenticated
             addDefaultCallbackUrl: "/"
-        }
+        },
+        // sessionRefresh: {
+        //     enablePeriodically: true,
+        //     enableOnWindowFocus: true,
+        // }
     }
 })

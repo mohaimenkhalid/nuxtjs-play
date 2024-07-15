@@ -17,7 +17,7 @@ definePageMeta({
   public: true,
   auth: {
     unauthenticatedOnly: true,
-    navigateAuthenticatedTo: '/about',
+    navigateAuthenticatedTo: '/dashboard',
   },
 })
 
