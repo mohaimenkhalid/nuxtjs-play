@@ -23,7 +23,6 @@ definePageMeta({
   },
 })
 const isLoading = ref(false)
-const { signIn } = useAuth() // uses the default signIn function provided by nuxt-auth
 const formData = reactive({
   email: 'john@mail.com',
   password: 'changeme',
@@ -34,10 +33,6 @@ const login = async (e) => {
   isLoading.value = true
   try {
     e.preventDefault()
-    let res = await signIn(
-        { ...formData },
-        { callbackUrl: '/dashboard' } // Where the user will be redirected after a successiful login
-    )
     toast.success("Login successfully!")
 
   } catch (error: any) {

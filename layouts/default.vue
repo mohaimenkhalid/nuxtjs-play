@@ -13,8 +13,6 @@ function sleep(time: any) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
-const { data, getSession } = useAuth();
-
 async function _signOut() {
   Cookies.remove('auth.token')
   await sleep(1000)
@@ -47,7 +45,7 @@ async function _signOut() {
         <div>
           <div class="mr-3">
             <DropdownMenu>
-            <DropdownMenuTrigger>{{data.name}}</DropdownMenuTrigger>
+            <DropdownMenuTrigger>mohaimen</DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
