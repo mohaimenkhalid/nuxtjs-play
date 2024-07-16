@@ -17,6 +17,12 @@ export default defineNuxtConfig({
          */
         componentDir: './components/ui'
     },
+    runtimeConfig: {
+        secretKey: '',
+        public: {
+            API_BASE_URL: process.env.API_BASE_URL,
+        }
+    },
     // auth: {
     //     globalAppMiddleware: true,
     //     baseURL: "https://api.escuelajs.co/",
