@@ -15,6 +15,10 @@ import {toast} from 'vue-sonner'
 import useApi from "~/composables/useApiData";
 import type {SignForm} from "~/types/user.types"
 
+definePageMeta({
+  layout: 'auth'
+})
+
 const { $services } = useNuxtApp();
 const isLoading = ref(false)
 const formData: SignForm = reactive({
@@ -59,9 +63,9 @@ const signIn = async () => {
         </form>
       </CardContent>
       <CardFooter>
-        <Button type="submit" @click="signIn" :disabled="isLoading">
+        <Button type="submit" @click="signIn" :disabled="status === 'pending'">
           <Loader2 v-if="isLoading" class="w-4 h-4 mr-2 animate-spin"/>
-          {{ isLoading ? 'processing...' : 'Submit' }}
+          {{ status === 'pending' ? 'processing...' : 'Submit' }}
         </Button>
       </CardFooter>
     </Card>
