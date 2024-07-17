@@ -12,7 +12,6 @@ import {Label} from '@/components/ui/label'
 import {Button} from '@/components/ui/button'
 import {Loader2} from 'lucide-vue-next'
 import {toast} from 'vue-sonner'
-import useApi from "~/composables/useApiData";
 import type {SignForm} from "~/types/user.types"
 
 definePageMeta({
@@ -26,11 +25,13 @@ const formData: SignForm = reactive({
   password: 'changeme'
 })
 
-const {data, status, error, execute} = useApi(() => $services.auth.signIn(formData)) //pass argument as a function with service function
+const {data, status, error, execute} = useAsyncData('login', () => $services.auth.signIn(formData)) //pass argument as a function with service function
+// const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useApi(() => $services.auth.signIn()) //pass argument as a function with service function
 
 const signIn = async () => {
   await execute();
   if (error.value) {
+    console.log({...error.value})
     toast.success("Invalid credential!")
   } else {
     await navigateTo('/dashboard')
