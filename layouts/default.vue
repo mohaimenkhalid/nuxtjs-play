@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import Cookies from 'js-cookie';
+import Loader from "~/components/app/Loader.vue";
+import {useAuthStore} from "~/store/useAuthStore";
+const authStore = useAuthStore();
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,13 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-function sleep(time: any) {
-  return new Promise(resolve => setTimeout(resolve, time));
-}
-
 async function _signOut() {
-  Cookies.remove('auth.token')
-  await sleep(1000)
   location.href="/"
 }
 
@@ -59,6 +55,7 @@ async function _signOut() {
     </nav>
     <slot />
   </div>
+  <Loader v-if="authStore.getLoader" />
 </template>
 <script setup lang="ts">
 </script>

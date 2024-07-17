@@ -13,6 +13,7 @@ import {Button} from '@/components/ui/button'
 import {Loader2} from 'lucide-vue-next'
 import {toast} from 'vue-sonner'
 import type {SignForm} from "~/types/user.types"
+import {useAuthStore} from "~/store/useAuthStore";
 
 definePageMeta({
   layout: 'auth'
@@ -24,6 +25,8 @@ const formData: SignForm = reactive({
   email: 'john@mail.com',
   password: 'changeme'
 })
+
+const store = useAuthStore()
 
 const {data, status, error, execute} = useAsyncData('login', () => $services.auth.signIn(formData)) //pass argument as a function with service function
 // const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useApi(() => $services.auth.signIn()) //pass argument as a function with service function
@@ -46,6 +49,7 @@ const signIn = async () => {
   <div class="flex justify-center items-center h-[100vh]">
     <Card class="w-[350px]">
       <CardHeader>
+        {{store.getCounter}}
         <CardTitle>Log in</CardTitle>
         <CardDescription>Login your system</CardDescription>
       </CardHeader>
