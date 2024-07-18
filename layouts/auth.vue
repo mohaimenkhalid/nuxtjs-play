@@ -8,5 +8,17 @@ const authStore = useAuthStore();
   <div class="min-h-svh">
     <slot />
   </div>
-  <Loader v-if="authStore.getLoader" />
+  <transition name="fade">
+    <Loader v-if="authStore.getLoader" />
+  </transition>
 </template>
+
+<style>
+/* Define global styles or additional styles as needed */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>
