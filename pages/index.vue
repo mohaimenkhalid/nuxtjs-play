@@ -14,12 +14,12 @@ import {Loader2} from 'lucide-vue-next'
 import {toast} from 'vue-sonner'
 import type {SignForm} from "~/types/user.types"
 import {useAuthStore} from "~/store/useAuthStore";
+import * as authService from "~/services/auth.service"
 
 definePageMeta({
   layout: 'auth'
 })
 
-const { $services } = useNuxtApp();
 const isLoading = ref(false)
 const formData: SignForm = reactive({
   email: 'john@mail.com',
@@ -28,16 +28,19 @@ const formData: SignForm = reactive({
 
 const store = useAuthStore()
 
-const {data, status, error, execute} = useAsyncData('login', () => $services.auth.signIn(formData)) //pass argument as a function with service function
+
+const {data, status, error, execute} = useAsyncData('login', () => authService.signIn(formData)) //pass argument as a function with service function
 // const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useApi(() => $services.auth.signIn()) //pass argument as a function with service function
 
-const signIn = async () => {
+const _signIn = async () => {
   await execute();
   if (error.value) {
     console.log({...error.value})
     toast.success("Invalid credential!")
   } else {
-    await navigateTo('/dashboard')
+    await store.setLogin(data.value.data)
+    await store.getUserSession();
+    await navigateTo('/dashboard');
     toast.success("Login successfully!")
   }
 }
@@ -68,7 +71,7 @@ const signIn = async () => {
         </form>
       </CardContent>
       <CardFooter>
-        <Button type="submit" @click="signIn" :disabled="status === 'pending'">
+        <Button type="submit" @click="_signIn" :disabled="status === 'pending'">
           <Loader2 v-if="isLoading" class="w-4 h-4 mr-2 animate-spin"/>
           {{ status === 'pending' ? 'processing...' : 'Submit' }}
         </Button>
