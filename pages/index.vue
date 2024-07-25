@@ -26,23 +26,26 @@ const formData: SignForm = reactive({
   password: 'changeme'
 })
 
-const store = useAuthStore()
+const authStore = useAuthStore()
 
 
-const {data, status, error, execute} = useAsyncData('login', () => authService.signIn(formData)) //pass argument as a function with service function
+// const {data, status, error, execute} = useAsyncData('login', () => authService.signIn(formData)) //pass argument as a function with service function
 // const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useApi(() => $services.auth.signIn()) //pass argument as a function with service function
 
 const _signIn = async () => {
-  await execute();
-  if (error.value) {
-    console.log({...error.value})
-    toast.success("Invalid credential!")
-  } else {
-    await store.setLogin(data.value.data)
-    await store.getUserSession();
-    await navigateTo('/dashboard');
-    toast.success("Login successfully!")
-  }
+  const response = await authStore.loginAction(formData)
+  console.log(response)
+
+  // await execute();
+  // if (error.value) {
+  //   console.log({...error.value})
+  //   toast.success("Invalid credential!")
+  // } else {
+  //   await store.setLogin(data.value.data)
+  //   await store.getUserSession();
+  //   await navigateTo('/dashboard');
+  //   toast.success("Login successfully!")
+  // }
 }
 
 
@@ -52,7 +55,7 @@ const _signIn = async () => {
   <div class="flex justify-center items-center h-[100vh]">
     <Card class="w-[350px]">
       <CardHeader>
-        {{store.getCounter}}
+<!--        {{store.getCounter}}-->
         <CardTitle>Log in</CardTitle>
         <CardDescription>Login your system</CardDescription>
       </CardHeader>

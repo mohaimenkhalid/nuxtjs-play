@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import {getToken, getUserSession, setLoginData} from "~/storage/appStorage"
+import * as authService from "~/services/auth.service"
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
@@ -27,6 +28,22 @@ export const useAuthStore = defineStore('auth', {
             this.token = data.access_token;
             this.refresh_token = data.refresh_token;
             this.isAuth = true;
+        },
+
+        loginAction(formData: object){
+
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const response = await authService.signIn(formData)
+                    console.log(response)
+                    resolve(true)
+                } catch ({message}) {
+                    console.log(message)
+                    reject(message);
+                }
+
+            })
+
         },
         async getUserSession() {
             try {
