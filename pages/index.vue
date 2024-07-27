@@ -30,8 +30,9 @@ const authStore = useAuthStore()
 
 
 // const {data, status, error, execute} = useAsyncData('login', () => authService.signIn(formData)) //pass argument as a function with service function
-// const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useApi(() => $services.auth.signIn()) //pass argument as a function with service function
-
+const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useAsyncData('get', () => authStore.getUserSessionAction()) //pass argument as a function with service function
+const token = useCookie('token')
+console.log("tokenss", token.value)
 const _signIn = async () => {
   try {
     const response = await authStore.loginAction(formData);
