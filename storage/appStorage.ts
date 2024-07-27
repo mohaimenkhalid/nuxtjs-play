@@ -18,7 +18,8 @@ function setLoginData(data){
     setRefreshToken(data.refresh_token)
 }
 function getUserSession() {
-    return localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
 }
 function setUserSession(data: any) {
     localStorage.setItem("user", JSON.stringify(data))
@@ -28,5 +29,6 @@ export {
     setToken,
     setRefreshToken,
     getUserSession,
-    setLoginData
+    setLoginData,
+    setUserSession
 }

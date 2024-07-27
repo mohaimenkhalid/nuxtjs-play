@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {getToken, getUserSession, setLoginData} from "~/storage/appStorage"
+import {getToken, getUserSession, setLoginData, setUserSession} from "~/storage/appStorage"
 import * as authService from "~/services/auth.service"
 
 export const useAuthStore = defineStore('auth', {
@@ -20,10 +20,10 @@ export const useAuthStore = defineStore('auth', {
             this.token = getToken();
             this.isAuth = !!getToken();
             this.user = getUserSession();
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            await new Promise(resolve => setTimeout(resolve, 500));
             this.isLoading = false;
         },
-        setLogin(data: {access_token: string, refresh_token: string}) {
+        setLoginData(data: {access_token: string, refresh_token: string}) {
             setLoginData(data)
             this.token = data.access_token;
             this.refresh_token = data.refresh_token;
@@ -31,27 +31,30 @@ export const useAuthStore = defineStore('auth', {
         },
 
         loginAction(formData: object){
-
             return new Promise(async (resolve, reject) => {
                 try {
                     const response = await authService.signIn(formData)
-                    console.log(response)
-                    resolve(true)
-                } catch ({message}) {
-                    console.log(message)
-                    reject(message);
+                    this.setLoginData(response.data)
+                    resolve(response.data)
+                } catch (e) {
+                    reject(e.response.data);
                 }
 
             })
 
         },
-        async getUserSession() {
-            try {
-                const response =  await $services.auth.getUserSession();
-                console.log(response)
-            } catch (e) {
-                console.log(e)
-            }
+        async getUserSessionAction() {
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const response =  await authService.getUserSession();
+                    setUserSession(response.data)
+                    this.user = response.data
+                    resolve(response.data)
+                } catch (e) {
+                    reject(e.response.data);
+                }
+
+            })
         }
     },
 })

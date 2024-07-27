@@ -33,8 +33,21 @@ const authStore = useAuthStore()
 // const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useApi(() => $services.auth.signIn()) //pass argument as a function with service function
 
 const _signIn = async () => {
-  const response = await authStore.loginAction(formData)
-  console.log(response)
+  try {
+    const response = await authStore.loginAction(formData);
+    if(response.access_token) {
+      await authStore.getUserSessionAction();
+      await navigateTo('/dashboard');
+      toast.success("Login successfully!")
+    }
+  } catch (e) {
+    if(e.message === "Unauthorized") {
+      toast.success("Invalid credential!")
+    } else {
+      console.log(e)
+      toast.error("Something went wrong with login!")
+    }
+  }
 
   // await execute();
   // if (error.value) {
