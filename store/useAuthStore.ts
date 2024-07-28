@@ -4,7 +4,8 @@ import * as authService from "~/services/auth.service"
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
-        isLoading: true,
+        isInitializingStore: true,
+        isLoading: false,
         isAuth: false,
         token: "",
         refresh_token: "",
@@ -12,8 +13,9 @@ export const useAuthStore = defineStore('auth', {
     }),
     getters: {
         getCounter: (state) => state.token,
-        getLoader: (state) => state.isLoading,
+        getIsLoading: (state) => state.isLoading,
         getToken: (state) => state.token,
+        getIsInitializingStore: (state) => state.isInitializingStore,
     },
     actions: {
         async initializeAuthStore() {
@@ -21,7 +23,7 @@ export const useAuthStore = defineStore('auth', {
             this.isAuth = !!getToken();
             this.user = getUserSession();
             await new Promise(resolve => setTimeout(resolve, 500));
-            this.isLoading = false;
+            this.isInitializingStore = false;
         },
         setLoginData(data: {access_token: string, refresh_token: string}) {
             setLoginData(data)
@@ -31,6 +33,7 @@ export const useAuthStore = defineStore('auth', {
         },
 
         loginAction(formData: object){
+            this.isLoading = true
             return new Promise(async (resolve, reject) => {
                 try {
                     const response = await authService.signIn(formData)
@@ -38,20 +41,24 @@ export const useAuthStore = defineStore('auth', {
                     resolve(response.data)
                 } catch (e) {
                     reject(e.response.data);
+                    this.isLoading = false
                 }
 
             })
 
         },
         async getUserSessionAction() {
+            this.isLoading = true
             return new Promise(async (resolve, reject) => {
                 try {
                     const response =  await authService.getUserSession();
                     setUserSession(response.data)
                     this.user = response.data
                     resolve(response.data)
+                    this.isLoading = false
                 } catch (e) {
                     reject(e.response.data);
+                    this.isLoading = false
                 }
 
             })

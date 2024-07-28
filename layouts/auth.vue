@@ -9,7 +9,7 @@ const authStore = useAuthStore();
     <slot />
   </div>
   <transition name="fade">
-    <Loader v-if="authStore.getLoader" />
+    <Loader v-if="authStore.getIsInitializingStore" />
   </transition>
 </template>
 

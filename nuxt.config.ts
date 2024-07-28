@@ -6,6 +6,9 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@pinia/nuxt",], //"@sidebase/nuxt-auth"
     plugins: ['~/plugins/storeInit.ts'],
+    router: {
+        middleware: ['auth'],
+    },
     shadcn: {
         prefix: '',
         componentDir: './components/ui'

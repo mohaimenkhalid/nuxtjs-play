@@ -14,10 +14,9 @@ import {Loader2} from 'lucide-vue-next'
 import {toast} from 'vue-sonner'
 import type {SignForm} from "~/types/user.types"
 import {useAuthStore} from "~/store/useAuthStore";
-import * as authService from "~/services/auth.service"
 
 definePageMeta({
-  layout: 'auth'
+  layout: 'auth',
 })
 
 const isLoading = ref(false)
@@ -27,12 +26,6 @@ const formData: SignForm = reactive({
 })
 
 const authStore = useAuthStore()
-
-
-// const {data, status, error, execute} = useAsyncData('login', () => authService.signIn(formData)) //pass argument as a function with service function
-const {data: userSessionData, status: userSessionStatus, error: userSessionError, execute: executeUserSession} = useAsyncData('get', () => authStore.getUserSessionAction()) //pass argument as a function with service function
-const token = useCookie('token')
-console.log("tokenss", token.value)
 const _signIn = async () => {
   try {
     const response = await authStore.loginAction(formData);
@@ -88,9 +81,9 @@ const _signIn = async () => {
         </form>
       </CardContent>
       <CardFooter>
-        <Button type="submit" @click="_signIn" :disabled="status === 'pending'">
+        <Button type="submit" @click="_signIn" :disabled="authStore.getIsLoading">
           <Loader2 v-if="isLoading" class="w-4 h-4 mr-2 animate-spin"/>
-          {{ status === 'pending' ? 'processing...' : 'Submit' }}
+          {{ authStore.getIsLoading ? 'processing...' : 'Submit' }}
         </Button>
       </CardFooter>
     </Card>

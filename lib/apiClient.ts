@@ -1,10 +1,8 @@
 import axios from "axios";
 import {getToken} from "~/storage/appStorage";
-import useInterceptor from "~/lib/client/useInterceptor"
 
-const {onConfig} = useInterceptor();
 const axiosInstance = axios.create({
-    baseURL: "https://api.escuelajs.co/api" //config.public.API_BASE_URL, // Set your base URL here
+    baseURL: import.meta.env.VITE_API_BASE_URL //config.public.API_BASE_URL, // Set your base URL here
 })
 
 let isRefreshing = false
@@ -21,7 +19,13 @@ const processQueue = (error: any, token = null) => {
     failedQueue = []
 }
 
-axiosInstance.interceptors.request.use((config) => onConfig(config), (error) => {
+axiosInstance.interceptors.request.use((config: any) => {
+    const token = getToken();
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`
+    }
+    return config
+}, (error) => {
     return Promise.reject(error)
 })
 
