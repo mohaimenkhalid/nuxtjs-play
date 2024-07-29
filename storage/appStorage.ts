@@ -24,11 +24,18 @@ function getUserSession() {
 function setUserSession(data: any) {
     localStorage.setItem("user", JSON.stringify(data))
 }
+
+function removeAuthStoreData() {
+    Cookies.remove("token")
+    Cookies.remove("refresh_token")
+    localStorage.removeItem("user")
+}
 export {
     getToken,
     setToken,
     setRefreshToken,
     getUserSession,
     setLoginData,
-    setUserSession
+    setUserSession,
+    removeAuthStoreData
 }

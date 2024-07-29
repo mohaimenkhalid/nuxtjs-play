@@ -10,9 +10,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import {toast} from "vue-sonner";
 
 async function _signOut() {
-  location.href="/"
+  await authStore.signOut();
+  await navigateTo("/")
+  toast.success("Logout successfully!")
 }
 
 </script>

@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
-import {getToken, getUserSession, setLoginData, setUserSession} from "~/storage/appStorage"
+import {defineStore} from 'pinia'
+import {getToken, getUserSession, setLoginData, setUserSession, removeAuthStoreData} from "~/storage/appStorage"
 import * as authService from "~/services/auth.service"
 
 export const useAuthStore = defineStore('auth', {
@@ -25,14 +25,14 @@ export const useAuthStore = defineStore('auth', {
             await new Promise(resolve => setTimeout(resolve, 500));
             this.isInitializingStore = false;
         },
-        setLoginData(data: {access_token: string, refresh_token: string}) {
+        setLoginData(data: { access_token: string, refresh_token: string }) {
             setLoginData(data)
             this.token = data.access_token;
             this.refresh_token = data.refresh_token;
             this.isAuth = true;
         },
 
-        loginAction(formData: object){
+        loginAction(formData: object) {
             this.isLoading = true
             return new Promise(async (resolve, reject) => {
                 try {
@@ -47,11 +47,11 @@ export const useAuthStore = defineStore('auth', {
             })
 
         },
-        async getUserSessionAction() {
+        getUserSessionAction() {
             this.isLoading = true
             return new Promise(async (resolve, reject) => {
                 try {
-                    const response =  await authService.getUserSession();
+                    const response = await authService.getUserSession();
                     setUserSession(response.data)
                     this.user = response.data
                     resolve(response.data)
@@ -62,6 +62,13 @@ export const useAuthStore = defineStore('auth', {
                 }
 
             })
+        },
+        signOut() {
+            removeAuthStoreData()
+            this.isAuth = false;
+            this.token = "";
+            this.refresh_token = "";
+            this.user = {};
         }
     },
 })
