@@ -17,6 +17,7 @@ import {useAuthStore} from "~/store/useAuthStore";
 
 definePageMeta({
   layout: 'auth',
+  middleware: 'guest',
 })
 
 const isLoading = ref(false)
