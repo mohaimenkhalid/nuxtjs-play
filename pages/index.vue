@@ -43,17 +43,6 @@ const _signIn = async () => {
       toast.error("Something went wrong with login!")
     }
   }
-
-  // await execute();
-  // if (error.value) {
-  //   console.log({...error.value})
-  //   toast.success("Invalid credential!")
-  // } else {
-  //   await store.setLogin(data.value.data)
-  //   await store.getUserSession();
-  //   await navigateTo('/dashboard');
-  //   toast.success("Login successfully!")
-  // }
 }
 
 
