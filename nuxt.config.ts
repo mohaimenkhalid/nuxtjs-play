@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
     devtools: {enabled: true},
     modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@pinia/nuxt",], //"@sidebase/nuxt-auth"
-    plugins: ['~/plugins/storeInit.ts'],
+    plugins: ['~/plugins/storeInit.ts', '~/plugins/fetchInterceptor.ts'],
     shadcn: {
         prefix: '',
         componentDir: './components/ui'

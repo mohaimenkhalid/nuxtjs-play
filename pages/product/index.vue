@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useFetch } from '#app';
+
 import {
   Table,
   TableBody,
@@ -17,6 +19,9 @@ const invoices = [
     paymentMethod: 'Credit Card',
   }
 ]
+
+const { data, error } = useFetch('https://api.escuelajs.co/api/v1/products');
+console.log("asfasf", data.value)
 </script>
 
 <template>
