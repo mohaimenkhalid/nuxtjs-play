@@ -53,7 +53,9 @@ async function _signOut() {
         </div>
       </div>
     </nav>
-    <slot />
+    <div class="p-4">
+      <slot />
+    </div>
   </div>
   <Loader v-if="authStore.getIsInitializingStore" />
 </template>
