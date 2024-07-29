@@ -1,12 +1,10 @@
 // plugins/fetchInterceptor.js
 export default defineNuxtPlugin((nuxtApp) => {
     const tokenRef = useCookie('token');
-
         const originalFetch = $fetch;
 
         nuxtApp.provide('fetch', async (request, options = {}) => {
             const token = tokenRef.value;
-            console.log(tokenRef)
             // Add token to headers
             if (token) {
                 options.headers = {
@@ -17,10 +15,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
             try {
                 const response = await originalFetch(request, options);
-                console.log("hwllo askjfhaskjf asf", response)
                 return response;
             } catch (error) {
-                console.log("pppp")
+                console.log("Erroring.......->")
                 // Check if the error is due to an expired token
                 if (error.response.status === 401) {
                     try {

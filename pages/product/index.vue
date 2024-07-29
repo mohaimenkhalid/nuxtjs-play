@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useFetch } from '#app';
+const { $fetch } = useNuxtApp()
 
 import {
   Table,
@@ -20,8 +20,7 @@ const invoices = [
   }
 ]
 
-const { data, error } = useFetch('https://api.escuelajs.co/api/v1/products');
-console.log("asfasf", data.value)
+const { data, error } = $fetch('https://api.escuelajs.co/api/v1/productss');
 </script>
 
 <template>
