@@ -1,11 +1,13 @@
 <script setup>
 import {Label} from "~/components/ui/label";
 import {Input} from "~/components/ui/input";
+const emit = defineEmits(['filterProduct'])
 
 const productFilterForm = inject('productFilterForm')
 
+const {status} = defineProps(['status'])
 const search = () => {
-
+  emit('filterProduct')
 }
 </script>
 <template>
@@ -21,7 +23,7 @@ const search = () => {
       </div>
     </CardContent>
     <CardFooter>
-      <Button @click="search">Search</Button>
+      <Button :disabled="status === 'pending'" @click="search">Search</Button>
     </CardFooter>
   </Card>
 </template>

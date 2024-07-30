@@ -1,7 +1,12 @@
 <script setup>
+import {Loader2} from 'lucide-vue-next'
+const {$fetch} = useNuxtApp()
 import ProductFilter from "~/components/product/ProductFilter.vue";
 
-const { $fetch } = useNuxtApp()
+const route = useRoute();
+const router = useRouter()
+
+const {title, price} = route.query
 
 import {
   Table,
@@ -13,22 +18,46 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-const { data: products, error, status } = await useAsyncData('products', () => $fetch('https://api.escuelajs.co/api/v1/products'));
-
 const productFilterForm = reactive({
-  title: '',
-  price: ''
+  title: title,
+  price: price
 })
 
+const {
+  data: products,
+  error,
+  status,
+  execute
+} = await useAsyncData('products', () => $fetch(import.meta.env.VITE_API_BASE_URL+'/v1/products', {
+  params: {
+    title: productFilterForm.title || '',
+    price: productFilterForm.price || ''
+  }
+}));
+
 provide("productFilterForm", productFilterForm)
+
+const changePage = async () => {
+  await navigateTo({
+    path: '/product',
+    query: {
+      ...productFilterForm
+    }
+  })
+  execute();
+}
 
 </script>
 
 <template>
   <h1 class="text-xl font-bold">Product List</h1>
-  <ProductFilter />
-  <div v-if="status === 'pending'">Loading...</div>
-  <Table v-else>
+  <ProductFilter :status="status" @filterProduct="changePage"/>
+  <div v-if="error">{{ error }}</div>
+  <div v-if="status === 'pending'" class="flex gap-x-2 justify-center text-center py-3 items-center">
+    <Loader2 class="w-4 h-4 animate-spin"/>
+    Loading...
+  </div>
+  <Table v-else-if="products">
     <TableCaption>A list of your recent invoices.</TableCaption>
     <TableHeader>
       <TableRow>
@@ -42,7 +71,7 @@ provide("productFilterForm", productFilterForm)
       </TableRow>
     </TableHeader>
     <TableBody>
-      {{productFilterForm}}
+      {{ productFilterForm }}
       <TableRow v-for="product in products" :key="product.id">
         <TableCell class="font-medium">
           {{ product.title }}

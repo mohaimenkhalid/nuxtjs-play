@@ -18,7 +18,7 @@ export default defineNuxtPlugin((nuxtApp) => {
                 const response = await originalFetch(request, options);
                 return response;
             } catch (error: any) {
-                console.log("Erroring.......->")
+                console.log("total erro.......->")
                 // Check if the error is due to an expired token
                 if (error.response.status === 401) {
                     try {
