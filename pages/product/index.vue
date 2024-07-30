@@ -1,4 +1,6 @@
-<script setup lang="ts">
+<script setup>
+import ProductFilter from "~/components/product/ProductFilter.vue";
+
 const { $fetch } = useNuxtApp()
 
 import {
@@ -11,43 +13,54 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-const invoices = [
-  {
-    invoice: 'INV001',
-    paymentStatus: 'Paid',
-    totalAmount: '$250.00',
-    paymentMethod: 'Credit Card',
-  }
-]
+const { data: products, error, status } = await useAsyncData('products', () => $fetch('https://api.escuelajs.co/api/v1/products'));
 
-const { data, error } = $fetch('https://api.escuelajs.co/api/v1/productss');
+const productFilterForm = reactive({
+  title: '',
+  price: ''
+})
+
+provide("productFilterForm", productFilterForm)
+
 </script>
 
 <template>
-  <h1 class="text-xl">Product List</h1>
-  <Table>
+  <h1 class="text-xl font-bold">Product List</h1>
+  <ProductFilter />
+  <div v-if="status === 'pending'">Loading...</div>
+  <Table v-else>
     <TableCaption>A list of your recent invoices.</TableCaption>
     <TableHeader>
       <TableRow>
         <TableHead class="w-[100px]">
-          Invoice
+          Title
         </TableHead>
-        <TableHead>Status</TableHead>
-        <TableHead>Method</TableHead>
-        <TableHead class="text-right">
-          Amount
-        </TableHead>
+        <TableHead>Image</TableHead>
+        <TableHead>Price</TableHead>
+        <TableHead>Category</TableHead>
+        <TableHead>Description</TableHead>
       </TableRow>
     </TableHeader>
     <TableBody>
-      <TableRow v-for="invoice in invoices" :key="invoice.invoice">
+      {{productFilterForm}}
+      <TableRow v-for="product in products" :key="product.id">
         <TableCell class="font-medium">
-          {{ invoice.invoice }}
+          {{ product.title }}
         </TableCell>
-        <TableCell>{{ invoice.paymentStatus }}</TableCell>
-        <TableCell>{{ invoice.paymentMethod }}</TableCell>
-        <TableCell class="text-right">
-          {{ invoice.totalAmount }}
+        <TableCell class="font-medium">
+          {{ product.images[0] }}
+        </TableCell>
+        <TableCell class="font-medium">
+          {{ product.price }}
+        </TableCell>
+        <TableCell class="font-medium">
+          {{ product.category.name }}
+        </TableCell>
+        <TableCell class="font-medium">
+          {{ product.category.name }}
+        </TableCell>
+        <TableCell class="font-medium">
+          {{ product.description }}
         </TableCell>
       </TableRow>
     </TableBody>
