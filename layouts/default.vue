@@ -31,7 +31,7 @@ async function _signOut() {
           </div>
           <ul class="list-none">
             <li class="inline-block ms-3">
-              <nuxt-link to="/product" class="bg-gray-700 text-white p-2 rounded-sm">Products</nuxt-link>
+              <nuxt-link to="/products" class="bg-gray-700 text-white p-2 rounded-sm">Products</nuxt-link>
             </li>
             <li class="inline-block ms-3">
               <nuxt-link to="/category">Category</nuxt-link>

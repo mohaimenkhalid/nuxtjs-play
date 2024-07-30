@@ -4,7 +4,6 @@ const {$fetch} = useNuxtApp()
 import ProductFilter from "~/components/product/ProductFilter.vue";
 
 const route = useRoute();
-const router = useRouter()
 
 const {title, price} = route.query
 
@@ -39,7 +38,7 @@ provide("productFilterForm", productFilterForm)
 
 const changePage = async () => {
   await navigateTo({
-    path: '/product',
+    path: '/products',
     query: {
       ...productFilterForm
     }
@@ -71,7 +70,6 @@ const changePage = async () => {
       </TableRow>
     </TableHeader>
     <TableBody>
-      {{ productFilterForm }}
       <TableRow v-for="product in products" :key="product.id">
         <TableCell class="font-medium">
           {{ product.title }}
