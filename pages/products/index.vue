@@ -57,7 +57,9 @@ const changePage = async () => {
     Loading...
   </div>
   <Table v-else-if="products">
-    <TableCaption>A list of your recent invoices.</TableCaption>
+    <TableCaption v-if="products.length === 0">
+      <p>No Product Found</p>
+    </TableCaption>
     <TableHeader>
       <TableRow>
         <TableHead class="w-[100px]">
