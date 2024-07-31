@@ -30,7 +30,7 @@ const {
 } = await useAsyncData('products', () => $fetch(import.meta.env.VITE_API_BASE_URL+'/v1/products', {
   params: {
     title: productFilterForm.title || '',
-    price: productFilterForm.price || ''
+    price: productFilterForm.price || '',
   }
 }));
 
@@ -65,7 +65,6 @@ const changePage = async () => {
         <TableHead class="w-[100px]">
           Title
         </TableHead>
-        <TableHead>Image</TableHead>
         <TableHead>Price</TableHead>
         <TableHead>Category</TableHead>
         <TableHead>Description</TableHead>
@@ -77,13 +76,7 @@ const changePage = async () => {
           {{ product.title }}
         </TableCell>
         <TableCell class="font-medium">
-          {{ product.images[0] }}
-        </TableCell>
-        <TableCell class="font-medium">
           {{ product.price }}
-        </TableCell>
-        <TableCell class="font-medium">
-          {{ product.category.name }}
         </TableCell>
         <TableCell class="font-medium">
           {{ product.category.name }}
