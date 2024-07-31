@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {toast} from "vue-sonner";
+import LoadingIndicator from "~/components/app/LoadingIndicator.vue";
 
 async function _signOut() {
   await authStore.signOut();
@@ -22,6 +23,7 @@ async function _signOut() {
 
 
 <template>
+  <LoadingIndicator />
   <div>
     <nav class="bg-gray-300 py-3">
       <div class="flex justify-between">
