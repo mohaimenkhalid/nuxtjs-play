@@ -11,6 +11,10 @@ import {
 } from "~/components/ui/table";
 import {useCategoryStore} from "~/store/useCategoryStore";
 
+useHead({
+  title: 'Category list',
+})
+
 const categoryStore = useCategoryStore()
 
 const categories = ref([]);

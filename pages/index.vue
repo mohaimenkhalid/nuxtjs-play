@@ -15,6 +15,14 @@ import {toast} from 'vue-sonner'
 import type {SignForm} from "~/types/user.types"
 import {useAuthStore} from "~/store/useAuthStore";
 
+useHead({
+  title: 'Login',
+  meta: [
+    { name: 'description', content: 'This is login page.' }
+  ]
+})
+
+
 definePageMeta({
   layout: 'auth',
   middleware: 'guest',

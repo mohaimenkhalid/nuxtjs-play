@@ -3,6 +3,10 @@ import {Loader2} from 'lucide-vue-next'
 const {$fetch} = useNuxtApp()
 import ProductFilter from "~/components/product/ProductFilter.vue";
 
+useHead({
+  title: 'Product list',
+})
+
 const route = useRoute();
 
 const {title, price} = route.query
