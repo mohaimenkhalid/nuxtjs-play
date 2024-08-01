@@ -52,7 +52,16 @@ getCategoryList()
           {{category.name}}
         </TableCell>
         <TableCell class="font-medium">
-          <img :src="category.image" />
+          <NuxtImg
+              :src="category.image"
+              alt="Image description"
+              width="300"
+              height="200"
+              format="webp"
+              quality="50"
+              loading="lazy"
+              :placeholder="[50, 25, 75, 5]"
+          />
         </TableCell>
       </TableRow>
     </TableBody>
