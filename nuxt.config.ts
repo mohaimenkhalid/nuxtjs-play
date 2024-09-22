@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+
 export default defineNuxtConfig({
     app: {
         head: {
@@ -17,7 +19,30 @@ export default defineNuxtConfig({
 
     },
     i18n: {
-        vueI18n: './i18n.config.ts' // if you are using custom path, default
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: 'lang',
+            alwaysRedirect: false
+        },
+        defaultLocale: 'en',
+        locales: [
+            {
+                code: 'en',
+                name: 'English',
+                file: 'en.json',
+                iso:'en-US',
+                dir: 'ltr'
+            },
+            {
+                code: 'bn',
+                name: 'Bangla',
+                file: 'en.json',
+                iso:'bn-BD',
+                dir: 'rtl'
+            },
+        ],
+        fallbackLocale: 'en',
+        langDir: 'locales',
     },
     runtimeConfig: {
         secretKey: '',

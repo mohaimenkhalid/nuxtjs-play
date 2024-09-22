@@ -14,6 +14,7 @@ import {Loader2} from 'lucide-vue-next'
 import {toast} from 'vue-sonner'
 import type {SignForm} from "~/types/user.types"
 import {useAuthStore} from "~/store/useAuthStore";
+import LanguageSwitcher from "~/components/app/LanguageSwitcher.vue";
 const { locales } = useI18n()
 
 useHead({
@@ -58,10 +59,12 @@ const _signIn = async () => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center h-[100vh]">
+  <div class="float-end">
+    <LanguageSwitcher />
+  </div>
+  <div class="flex justify-center items-center h-[100vh] flex-col">
     <Card class="w-[350px]">
       <CardHeader>
-<!--        {{store.getCounter}}-->
         {{$t('TITLE')}}
         {{locales}}
         <CardTitle>Log in</CardTitle>
