@@ -1,6 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import {cookies} from "next/headers";
-
 export default defineNuxtConfig({
     app: {
         head: {
@@ -9,7 +7,7 @@ export default defineNuxtConfig({
     },
     compatibilityDate: '2024-04-03',
     devtools: {enabled: true},
-    modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@pinia/nuxt", "@nuxt/image"], //"@sidebase/nuxt-auth"
+    modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@pinia/nuxt", "@nuxt/image", "@nuxtjs/i18n"], //"@sidebase/nuxt-auth"
     plugins: ['~/plugins/storeInit.ts', '~/plugins/fetchInterceptor.ts'],
     shadcn: {
         prefix: '',
@@ -17,6 +15,9 @@ export default defineNuxtConfig({
     },
     image: {
 
+    },
+    i18n: {
+        vueI18n: './i18n.config.ts' // if you are using custom path, default
     },
     runtimeConfig: {
         secretKey: '',

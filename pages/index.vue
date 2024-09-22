@@ -14,6 +14,7 @@ import {Loader2} from 'lucide-vue-next'
 import {toast} from 'vue-sonner'
 import type {SignForm} from "~/types/user.types"
 import {useAuthStore} from "~/store/useAuthStore";
+const { locales } = useI18n()
 
 useHead({
   title: 'Login',
@@ -61,6 +62,8 @@ const _signIn = async () => {
     <Card class="w-[350px]">
       <CardHeader>
 <!--        {{store.getCounter}}-->
+        {{$t('TITLE')}}
+        {{locales}}
         <CardTitle>Log in</CardTitle>
         <CardDescription>Login your system</CardDescription>
       </CardHeader>
