@@ -36,7 +36,7 @@ export default defineNuxtConfig({
             {
                 code: 'bn',
                 name: 'Bangla',
-                file: 'en.json',
+                file: 'bn.json',
                 iso:'bn-BD',
                 dir: 'rtl'
             },

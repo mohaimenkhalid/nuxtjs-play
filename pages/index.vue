@@ -66,7 +66,6 @@ const _signIn = async () => {
     <Card class="w-[350px]">
       <CardHeader>
         {{$t('TITLE')}}
-        {{locales}}
         <CardTitle>Log in</CardTitle>
         <CardDescription>Login your system</CardDescription>
       </CardHeader>
