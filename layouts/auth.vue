@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import Loader from "~/components/app/Loader.vue";
-import {useAuthStore} from "~/store/useAuthStore";
-const authStore = useAuthStore();
+
 </script>
 
 <template>
   <div class="min-h-svh">
     <slot />
   </div>
-  <transition name="fade">
-    <Loader v-if="authStore.getIsInitializingStore" />
-  </transition>
 </template>
 
 <style>

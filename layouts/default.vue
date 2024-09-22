@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Loader from "~/components/app/Loader.vue";
 import {useAuthStore} from "~/store/useAuthStore";
 const authStore = useAuthStore();
 import {
@@ -62,7 +61,6 @@ async function _signOut() {
       <slot />
     </div>
   </div>
-  <Loader v-if="authStore.getIsInitializingStore" />
 </template>
 <script setup lang="ts">
 
