@@ -2,6 +2,7 @@
 import {Loader2} from 'lucide-vue-next'
 const {$fetch} = useNuxtApp()
 import ProductFilter from "~/components/product/ProductFilter.vue";
+const localeRoute = useLocaleRoute()
 
 useHead({
   title: 'Product list',
@@ -41,12 +42,8 @@ const {
 provide("productFilterForm", productFilterForm)
 
 const changePage = async () => {
-  await navigateTo({
-    path: '/products',
-    query: {
-      ...productFilterForm
-    }
-  })
+  const route = localeRoute({ path: '/products',  query: {...productFilterForm} })
+  await navigateTo(route)
   execute();
 }
 

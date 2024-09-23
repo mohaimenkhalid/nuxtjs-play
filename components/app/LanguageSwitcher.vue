@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { locale, locales, setLocale } = useI18n()
+const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath();
 
 import {
@@ -14,11 +14,6 @@ const selectedLocale = computed(() => {
   return locales.value.find(i => i.code == locale.value)
 })
 
-const selectedLanguage = ref();
-
-const changeLanguage = (lang: string) => {
-  switchLocalePath(lang)
-}
 </script>
 
 <template>

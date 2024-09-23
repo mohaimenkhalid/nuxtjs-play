@@ -15,7 +15,7 @@ import {toast} from 'vue-sonner'
 import type {SignForm} from "~/types/user.types"
 import {useAuthStore} from "~/store/useAuthStore";
 import LanguageSwitcher from "~/components/app/LanguageSwitcher.vue";
-const { locales } = useI18n()
+const localePath = useLocalePath()
 
 useHead({
   title: 'Login',
@@ -42,7 +42,7 @@ const _signIn = async () => {
     const response = await authStore.loginAction(formData);
     if(response.access_token) {
       await authStore.getUserSessionAction();
-      await navigateTo('/dashboard');
+      await navigateTo(localePath('/dashboard'));
       toast.success("Login successfully!")
     }
   } catch (e) {
