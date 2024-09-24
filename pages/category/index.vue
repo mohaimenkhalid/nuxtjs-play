@@ -14,6 +14,9 @@ import {useCategoryStore} from "~/store/useCategoryStore";
 useHead({
   title: 'Category list',
 })
+definePageMeta({
+  middleware: 'auth',
+});
 
 const categoryStore = useCategoryStore()
 

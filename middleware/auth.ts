@@ -2,7 +2,6 @@
 export default defineNuxtRouteMiddleware((to, from) => {
     const token = useCookie('token');
     console.log("token get-->", token)
-
     if (!token.value) {
         return navigateTo('/')
     }

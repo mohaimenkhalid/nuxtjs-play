@@ -7,6 +7,9 @@ const localeRoute = useLocaleRoute()
 useHead({
   title: 'Product list',
 })
+definePageMeta({
+  middleware: 'auth',
+});
 
 const route = useRoute();
 
