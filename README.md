@@ -1,10 +1,15 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-### nuxt auth - https://auth.sidebase.io/guide/getting-started/introduction
-
-interceptor example - https://chatgpt.com/share/8fd6263c-f5ef-4e7e-ae23-778511d035bf
+### Nuxt 3 Starter project with Initial Setup
+#### List of features -
+1. Shadcn-vue component library
+2. tailwind css
+3. Dark mode switcher
+4. i18n language switcher
+5. State Management (Pinia)
+6. Dynamic Layouts implement
+7. Authentication
+   1. Login
+   2. logout
+   3. Protected route using middleware
+8. Form validation with Vuelidate
+9. Product List Rendering and filter with SSR useing useAsyncData
+10. Category List render with non-SSR with axios api client with full setup
