@@ -17,6 +17,7 @@ import {useAuthStore} from "~/store/useAuthStore";
 import LanguageSwitcher from "~/components/app/LanguageSwitcher.vue";
 import authValidator from '~/validators/authValidator'
 import Error from "~/components/app/Error.vue";
+import DarkModeSwitcher from "~/components/app/DarkModeSwitcher.vue";
 
 useHead({
   title: 'Login',
@@ -63,6 +64,7 @@ const _signIn = async () => {
 
 <template>
   <div class="float-end">
+    <DarkModeSwitcher />
     <LanguageSwitcher />
   </div>
   <div class="flex justify-center items-center h-[100vh] flex-col">
