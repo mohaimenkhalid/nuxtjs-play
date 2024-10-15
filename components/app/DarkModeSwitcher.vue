@@ -4,6 +4,15 @@ import {Button} from '@/components/ui/button'
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from '@/components/ui/dropdown-menu'
 
 const colorMode = useColorMode()
+
+useHead({
+  bodyAttrs: {
+    class: computed(() => {
+      if (colorMode.value === "dark") return 'dark';
+      return '';
+    }),
+  },
+});
 </script>
 
 <template>
@@ -21,7 +30,9 @@ const colorMode = useColorMode()
       <DropdownMenuItem @click="colorMode.preference = 'light'">
         Light
       </DropdownMenuItem>
-      <DropdownMenuItem @click="colorMode.preference = 'dark'">
+      <DropdownMenuItem
+          @click="colorMode.preference = 'dark'"
+      >
         Dark
       </DropdownMenuItem>
       <DropdownMenuItem @click="colorMode.preference = 'system'">
@@ -31,19 +42,19 @@ const colorMode = useColorMode()
   </DropdownMenu>
 </template>
 
-<style>
-body {
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.8);
-}
+<!--<style>-->
+<!--body {-->
+<!--  background-color: #fff;-->
+<!--  color: rgba(0, 0, 0, 0.8);-->
+<!--}-->
 
-.dark-mode body {
-  background-color: #091a28;
-  color: #ebf4f1;
-}
+<!--.dark-mode body {-->
+<!--  background-color: #091a28;-->
+<!--  color: #ebf4f1;-->
+<!--}-->
 
-.sepia-mode body {
-  background-color: #f1e7d0;
-  color: #433422;
-}
-</style>
+<!--.sepia-mode body {-->
+<!--  background-color: #f1e7d0;-->
+<!--  color: #433422;-->
+<!--}-->
+<!--</style>-->

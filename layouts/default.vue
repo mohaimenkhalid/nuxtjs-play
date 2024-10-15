@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import LoadingIndicator from "~/components/app/LoadingIndicator.vue";
 import LanguageSwitcher from "~/components/app/LanguageSwitcher.vue";
+import DarkModeSwitcher from "~/components/app/DarkModeSwitcher.vue";
 import {toast} from "vue-sonner";
 const authStore = useAuthStore();
 const localePath = useLocalePath();
@@ -45,7 +46,8 @@ async function _signOut() {
           </ul>
         </div>
         <div>
-          <div class="mr-3">
+          <div class="mr-3 flex items-center gap-x-2">
+            <DarkModeSwitcher />
             <LanguageSwitcher />
             <DropdownMenu>
             <DropdownMenuTrigger>mohaimen</DropdownMenuTrigger>
