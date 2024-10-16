@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { RiHeartFill } from "@remixicon/vue";
-import { Button } from '@/components/ui/button'
+import { Button } from '~/components/ui/button'
 
 definePageMeta({
   middleware: 'auth',
@@ -32,7 +32,7 @@ useHead({
       </CardHeader>
       <CardContent>
        1000K+
-        <Button variant="destructive" class="bg-destructive">
+        <Button variant="destructive">
           Destructive
         </Button>
       </CardContent>
