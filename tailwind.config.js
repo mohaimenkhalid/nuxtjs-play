@@ -36,6 +36,10 @@ module.exports = {
         background: {
           DEFAULT: "var(--background)",
         },
+        destructive: {
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
+        },
       },
       borderRadius: {
       	xl: "calc(var(--radius) + 4px)",

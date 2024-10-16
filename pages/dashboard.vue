@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { RiHeartFill } from "@remixicon/vue";
+import { Button } from '@/components/ui/button'
 
 definePageMeta({
   middleware: 'auth',
@@ -25,12 +26,15 @@ useHead({
       <CardHeader>
         <CardTitle class="font-primary text-red-600 dark:text-teal-600">
           <h3>Total Product</h3>
-          <RiHeartFill size="36px" color="red" className="my-icon" />
+          <RiHeartFill size="16px" className="my-icon text-primary hover:text-secondary" />
         </CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
        1000K+
+        <Button variant="destructive" class="bg-destructive">
+          Destructive
+        </Button>
       </CardContent>
     </Card>
   </div>
