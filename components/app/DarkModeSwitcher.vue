@@ -6,7 +6,7 @@ import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger
 const colorMode = useColorMode()
 
 useHead({
-  bodyAttrs: {
+  htmlAttrs: {
     class: computed(() => {
       if (colorMode.value === "dark") return 'dark';
       return '';
