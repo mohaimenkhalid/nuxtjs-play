@@ -32,7 +32,7 @@ useHead({
       </CardHeader>
       <CardContent>
        1000K+
-        <Button variant="secondary" size="lg">
+        <Button variant="link" size="md">
           <RiHeartFill size="16px" className="my-icon text-primary hover:text-secondary" />
           <p>Destructive</p>
         </Button>

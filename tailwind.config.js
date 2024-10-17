@@ -51,9 +51,6 @@ module.exports = {
         // surface: {
         //   DEFAULT: "var(--surface)",
         // },
-        text: {
-          DEFAULT: "var(--text)",
-        },
         link: {
           DEFAULT: "var(--link)",
         },
@@ -61,7 +58,7 @@ module.exports = {
           DEFAULT: "var(--disabled)",
         },
         border: {
-          DEFAULT: "var(--border)",
+          DEFAULT: "var(--border-primary)",
         },
         ring: {
           DEFAULT: "var(--ring)",
@@ -71,10 +68,13 @@ module.exports = {
         },
       },
       borderRadius: {
-      	xl: "calc(var(--radius) + 4px)",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        'xs': "calc(var(--radius) - 2px)",
+        'sm': "calc(var(--radius) + 2px)",
+        'md': "calc(var(--radius) + 4px)",
+      	'lg': "calc(var(--radius) + 6px)",
+      	'xl': "calc(var(--radius) + 8px)",
+      	'2xl': "calc(var(--radius) + 10px)",
+      	'3xl': "calc(var(--radius) + 12px)",
       },
       // screens: {
       //   '2xl': '1400px',
