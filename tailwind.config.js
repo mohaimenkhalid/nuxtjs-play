@@ -25,20 +25,49 @@ module.exports = {
           // dark: '#00425e',
         },
         secondary: {
+          light: "var(--secondary-light)",
           DEFAULT: "var(--secondary)",
+          dark: "var(--secondary-dark)",
         },
-        tertiary: {
-          DEFAULT: "var(--tertiary)",
+        // tertiary: {
+        //   DEFAULT: "var(--tertiary)",
+        // },
+        success: {
+          light: "var(--success-light)",
+          DEFAULT: "var(--success)",
+        },
+        danger: {
+          DEFAULT: "var(--danger)",
+        },
+        warning: {
+          DEFAULT: "var(--warning)",
+        },
+        info: {
+          DEFAULT: "var(--info)",
+        },
+        body: {
+          DEFAULT: "var(--body)",
+        },
+        // surface: {
+        //   DEFAULT: "var(--surface)",
+        // },
+        text: {
+          DEFAULT: "var(--text)",
+        },
+        link: {
+          DEFAULT: "var(--link)",
+        },
+        disabled: {
+          DEFAULT: "var(--disabled)",
         },
         border: {
           DEFAULT: "var(--border)",
         },
-        background: {
-          DEFAULT: "var(--background)",
+        ring: {
+          DEFAULT: "var(--ring)",
         },
-        destructive: {
-          DEFAULT: "var(--destructive)",
-          foreground: "var(--destructive-foreground)",
+        input: {
+          DEFAULT: "var(--input)",
         },
       },
       borderRadius: {

@@ -7,62 +7,61 @@
 @layer base {
   :root {
     --primary: #F04935;
+    --primary-light: #FEF2F0;
+    --primary-dark: #F15342;
     --secondary: #0C3B64;
-    --tertiary: #EFF7FD;
-    --accent: #EFF7FD;
-    --success: #EFF7FD;
-    --info: #EFF7FD;
-    --warning: #EFF7FD;
-    --error: #EFF7FD;
+    --secondary-light: #CFE6F9;
+    --secondary-dark: #104E85;
+    /*--tertiary: #EFF7FD;*/
+    --success: #48A43F;
+    --success-light: #ECFDF3;
+    --success-dark: #067647;
+    --danger: #E0293B;
+    --warning: #FFB728;
+    --info: #1E88E5;
+    --info-light: #EFF7FD;
 
-    --background: #F8FAFF;
-    --surface: #EFF7FD;
+    --body: #F8FAFF;
+    /*--surface: #EFF7FD;*/
 
-    --text: #EFF7FD;
+    --dark: #151414;
+    --dark-secondary: #4D4D4F;
+    --dark-secondary-light: #676769;
+    --dark-secondary-dark: #747476;
+    --gray: #B6B6B6;
+    --gray-light: #DBDBDB;
 
     --link: #EFF7FD;
-    --hover: #EFF7FD;
     --disabled: #EFF7FD;
 
     --border: #EFF7FD;
     --ring: #EFF7FD;
-    --input-bg: #EFF7FD;
+    --input: #EFF7FD;
 
     --radius: 4px;
-
-    /*--muted: red;*/
-    /*--muted-foreground: green;*/
-    /*--muted-fore: yellow;*/
-
-    /*--popover: 0 0% 100%;*/
-    /*--popover-foreground: 222.2 84% 4.9%;*/
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
   }
 
   .dark {
-    --primary: #0C3B64;
-    --secondary: #F04935;
+    --primary: #F04935;
+    --secondary: #0C3B64;
     --tertiary: #EFF7FD;
-    --accent: #EFF7FD;
     --success: #EFF7FD;
+    --success-light: #ECFDF3;
+    --danger: #EFF7FD;
     --info: #EFF7FD;
     --warning: #EFF7FD;
-    --error: #EFF7FD;
 
-    --background: #333;
+    --body: #F8FAFF;
     --surface: #EFF7FD;
 
     --text: #EFF7FD;
 
     --link: #EFF7FD;
-    --hover: #EFF7FD;
     --disabled: #EFF7FD;
 
     --border: #EFF7FD;
     --ring: #EFF7FD;
-    --input-bg: #EFF7FD;
+    --input: #EFF7FD;
   }
 }
  
@@ -72,7 +71,7 @@
   }
 
   body {
-    @apply bg-background relative overflow-x-hidden font-primary;
+    @apply bg-body relative overflow-x-hidden font-primary;
   }
 
   main {

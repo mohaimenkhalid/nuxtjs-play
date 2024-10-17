@@ -26,14 +26,15 @@ useHead({
       <CardHeader>
         <CardTitle class="font-primary text-red-600 dark:text-teal-600">
           <h3>Total Product</h3>
-          <RiHeartFill size="16px" className="my-icon text-primary hover:text-secondary" />
+          <RiHeartFill size="16px" className="my-icon text-primary hover:text-secondary animate-pulse" />
         </CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
        1000K+
-        <Button variant="destructive">
-          Destructive
+        <Button variant="secondary" size="lg">
+          <RiHeartFill size="16px" className="my-icon text-primary hover:text-secondary" />
+          <p>Destructive</p>
         </Button>
       </CardContent>
     </Card>
