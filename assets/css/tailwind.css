@@ -22,20 +22,29 @@
     --info-light: #EFF7FD;
 
     --body: #F8FAFF;
+    --background-shade-3: #F4F8FB;
     /*--surface: #EFF7FD;*/
 
     --dark: #151414;
     --dark-secondary: #4D4D4F;
-    --dark-secondary-light: #676769;
-    --dark-secondary-dark: #747476;
-    --gray: #B6B6B6;
+    --dark-shade-1: #676769;
+    --dark-shade-2: #747476;
+    --dark-shade-3: #8D8D8F;
+    --gray: #EDEDED;
     --gray-light: #DBDBDB;
+    --gray-shade3: #C8C8C8;
+    --gray-shade4: #B6B6B6;
+    --gray-shade5: #A4A4A4;
 
-    --link: #EFF7FD;
+    --link: #F04935;
     --disabled: #EFF7FD;
 
-    --border: #EFF7FD;
-    --ring: #EFF7FD;
+    --border: #D0D5DD;
+    --border-light: #EDEDED;
+    --ring: rgba(12, 59, 100, 0.09);
+    --ring-secondary: rgba(16, 24, 40, 0.05);
+    --ring-light: rgba(21, 108, 183, 0.16);
+    --ring-dark: rgba(16, 78, 133, 0.32);
     --input: #EFF7FD;
 
     --radius: 4px;
