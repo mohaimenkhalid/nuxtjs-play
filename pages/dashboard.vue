@@ -24,9 +24,8 @@ useHead({
   <div class="container py-10">
     <Card class="w-[350px]">
       <CardHeader>
-        <CardTitle class="font-primary text-red-600 dark:text-teal-600">
+        <CardTitle>
           <h3>Total Product</h3>
-          <RiHeartFill size="16px" className="my-icon text-primary hover:text-secondary animate-pulse" />
         </CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>

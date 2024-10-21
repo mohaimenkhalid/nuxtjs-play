@@ -35,6 +35,7 @@ module.exports = {
         success: {
           light: "var(--success-light)",
           DEFAULT: "var(--success)",
+          dark: "var(--success-dark)",
         },
         danger: {
           DEFAULT: "var(--danger)",
@@ -43,7 +44,22 @@ module.exports = {
           DEFAULT: "var(--warning)",
         },
         info: {
+          light: "var(--info-light)",
           DEFAULT: "var(--info)",
+        },
+        dark: {
+          DEFAULT: "var(--dark)",
+          secondary: "var(--dark-secondary)",
+          shade1: "var(--dark-shade-1)",
+          shade2: "var(--dark-shade-2)",
+          shade3: "var(--dark-shade-3)",
+        },
+        gray: {
+          light: "var(--gray-light)",
+          DEFAULT: "var(--gray)",
+          shade3: "var(--gray-shade3)",
+          shade4: "var(--gray-shade4)",
+          shade5: "var(--gray-shade5)",
         },
         body: {
           DEFAULT: "var(--body)",
@@ -58,10 +74,14 @@ module.exports = {
           DEFAULT: "var(--disabled)",
         },
         border: {
-          DEFAULT: "var(--border-primary)",
+          light: "var(--border-light)",
+          DEFAULT: "var(--border)",
         },
         ring: {
+          light: "var(--ring-light)",
           DEFAULT: "var(--ring)",
+          secondary: "var(--ring-secondary)",
+          dark: "var(--ring-dark)",
         },
         input: {
           DEFAULT: "var(--input)",
@@ -76,10 +96,13 @@ module.exports = {
       	'2xl': "calc(var(--radius) + 10px)",
       	'3xl': "calc(var(--radius) + 12px)",
       },
-      // screens: {
-      //   '2xl': '1400px',
-      //   '3xl': '1700px',
-      // },
+      boxShadow: {
+        'sm': "2px 2px 24px 0px",
+      },
+      screens: {
+        '2xl': '1400px',
+        '3xl': '1700px',
+      },
       fontFamily: {
         primary: ['Inter', 'sans-serif']
       },
