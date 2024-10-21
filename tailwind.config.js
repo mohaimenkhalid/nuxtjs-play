@@ -61,6 +61,10 @@ module.exports = {
           shade4: "var(--gray-shade4)",
           shade5: "var(--gray-shade5)",
         },
+        text: {
+          DEFAULT: "var(--body)",
+          secondary: "var(--text-secondary)",
+        },
         body: {
           DEFAULT: "var(--body)",
         },
@@ -97,6 +101,7 @@ module.exports = {
       	'3xl': "calc(var(--radius) + 12px)",
       },
       boxShadow: {
+        'xs': "0px 1px 2px 0px",
         'sm': "2px 2px 24px 0px",
       },
       screens: {
