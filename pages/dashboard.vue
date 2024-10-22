@@ -22,6 +22,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
+import PrimaryCheckbox from "@/components/custom-ui/primary-checkbox/PrimaryCheckbox.vue";
+import MobileInput from "@/components/custom-ui/mobile-input/MobileInput.vue";
 
 definePageMeta({
   middleware: 'auth',
@@ -45,7 +47,7 @@ useHead({
       <CardContent>
        1000K+
         <Button variant="link" size="md">
-          <RiHeartFill size="16px" className="my-icon text-primary hover:text-secondary" />
+          <RiHeartFill size="16px" class="text-primary hover:text-secondary" />
           <p>Destructive</p>
         </Button>
       </CardContent>
@@ -61,19 +63,55 @@ useHead({
 
       <div>
         <Label for="username">
+          Mobile Number
+        </Label>
+        <MobileInput
+            inputId="mobile"
+            placeholder="Enter mobile number"
+        />
+      </div>
+
+      <div>
+        <Label for="username">
           File
         </Label>
         <Input type="file" id="username" placeholder="Upload file" />
       </div>
 
-      <div class="flex items-center space-x-2">
-        <Checkbox id="terms" />
-        <label
-            for="terms"
-            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        >
-          Accept terms and conditions
-        </label>
+      <PrimaryCheckbox
+          inputId="terms-conditions"
+          labelTxt="Accept terms and conditions"
+      />
+
+      <div>
+        <Label for="username">
+          Dropdown
+        </Label>
+        <Select>
+          <SelectTrigger>
+            <SelectValue placeholder="Select a fruit" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Fruits</SelectLabel>
+              <SelectItem value="apple">
+                Apple
+              </SelectItem>
+              <SelectItem value="banana">
+                Banana
+              </SelectItem>
+              <SelectItem value="blueberry">
+                Blueberry
+              </SelectItem>
+              <SelectItem value="grapes">
+                Grapes
+              </SelectItem>
+              <SelectItem value="pineapple">
+                Pineapple
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
     </div>
 

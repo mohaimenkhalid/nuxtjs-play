@@ -61,9 +61,10 @@ module.exports = {
           shade4: "var(--gray-shade4)",
           shade5: "var(--gray-shade5)",
         },
-        text: {
-          DEFAULT: "var(--body)",
+        textColor: {
+          DEFAULT: "var(--text-primary)",
           secondary: "var(--text-secondary)",
+          quaternary: "var(--text-quaternary)",
         },
         body: {
           DEFAULT: "var(--body)",
@@ -77,7 +78,7 @@ module.exports = {
         disabled: {
           DEFAULT: "var(--disabled)",
         },
-        border: {
+        borderColor: {
           light: "var(--border-light)",
           DEFAULT: "var(--border)",
         },
