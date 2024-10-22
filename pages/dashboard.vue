@@ -21,7 +21,8 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Checkbox } from '@/components/ui/checkbox'
+import { RadioGroup } from '@/components/ui/radio-group'
+import PrimaryRadio from "~/components/custom-ui/primary-radio/PrimaryRadio.vue";
 import PrimaryCheckbox from "@/components/custom-ui/primary-checkbox/PrimaryCheckbox.vue";
 import MobileInput from "@/components/custom-ui/mobile-input/MobileInput.vue";
 
@@ -56,32 +57,40 @@ useHead({
     <div class="my-10 space-y-4">
       <div>
         <Label for="username">
-          Username
+          Radio
+        </Label>
+        <RadioGroup default-value="comfortable">
+          <PrimaryRadio inputId="radio1" labelTxt="Radio 1" />
+          <PrimaryRadio inputId="radio2" labelTxt="Radio 2" />
+        </RadioGroup>
+      </div>
+
+      <div>
+        <Label for="username">
+          Checkbox
+        </Label>
+        <PrimaryCheckbox
+            inputId="terms-conditions"
+            labelTxt="Accept terms and conditions"
+        />
+      </div>
+
+      <div>
+        <Label for="username">
+          Text Input
         </Label>
         <Input id="username" placeholder="Enter username" />
       </div>
 
       <div>
         <Label for="username">
-          Mobile Number
+          Phone input
         </Label>
         <MobileInput
             inputId="mobile"
             placeholder="Enter mobile number"
         />
       </div>
-
-      <div>
-        <Label for="username">
-          File
-        </Label>
-        <Input type="file" id="username" placeholder="Upload file" />
-      </div>
-
-      <PrimaryCheckbox
-          inputId="terms-conditions"
-          labelTxt="Accept terms and conditions"
-      />
 
       <div>
         <Label for="username">
@@ -112,6 +121,13 @@ useHead({
             </SelectGroup>
           </SelectContent>
         </Select>
+      </div>
+
+      <div>
+        <Label for="username">
+          File Input
+        </Label>
+        <Input type="file" id="username" placeholder="Upload file" />
       </div>
     </div>
 

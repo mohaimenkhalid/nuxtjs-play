@@ -4,18 +4,10 @@ import {Label} from "~/components/ui/label";
 import { cn } from '@/lib/utils'
 
 const props = defineProps<{
-  labelTxt: {
-    type: String
-  },
-  inputId: {
-    type: String
-  },
-  class: {
-    type: String
-  },
-  labelClass: {
-    type: String
-  }
+  inputId?: [Number, String][];
+  labelTxt?: string;
+  labelClass?: string;
+  class?: string;
 }>();
 </script>
 

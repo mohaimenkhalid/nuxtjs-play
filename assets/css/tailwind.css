@@ -49,6 +49,7 @@
     --ring-secondary: rgba(16, 24, 40, 0.05);
     --ring-light: rgba(21, 108, 183, 0.16);
     --ring-dark: rgba(16, 78, 133, 0.32);
+    --ring-gray: rgba(152, 162, 179, 0.14);
     --input: #EFF7FD;
 
     --radius: 4px;
