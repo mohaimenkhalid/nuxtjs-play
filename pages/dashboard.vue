@@ -61,7 +61,7 @@ useHead({
         <Label>
           Primary Radio
         </Label>
-        <RadioGroup default-value="Radio 1">
+        <RadioGroup default-value="Radio 1" class="space-y-2">
           <PrimaryRadio inputId="radio1" labelTxt="Radio 1" />
           <PrimaryRadio inputId="radio2" labelTxt="Radio 2" />
         </RadioGroup>
@@ -90,8 +90,16 @@ useHead({
           Tertiary Radio
         </Label>
         <RadioGroup default-value="Coupon 1" class="flex gap-x-2">
-          <TertiaryRadio inputId="coupon1" labelTxt="Coupon 1" />
-          <TertiaryRadio inputId="coupon2" labelTxt="Coupon 2" />
+          <TertiaryRadio
+              inputId="coupon1"
+              labelTxt="Coupon 1"
+              labelDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, veritatis."
+          />
+          <TertiaryRadio
+              inputId="coupon2"
+              labelTxt="Coupon 2"
+              labelDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, veritatis."
+          />
         </RadioGroup>
       </div>
 

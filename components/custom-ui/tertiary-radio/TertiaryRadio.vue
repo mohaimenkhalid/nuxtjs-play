@@ -7,7 +7,10 @@ const props = defineProps<{
   inputId?: [Number, String][];
   labelTxt?: string;
   labelClass?: string;
+  labelBlockClass?: string;
   class?: string;
+  labelDescription?: string;
+  labelDescriptionClass?: string;
 }>();
 </script>
 
@@ -16,10 +19,10 @@ const props = defineProps<{
     <RadioGroupItem :id="inputId" :value="labelTxt" :name="labelTxt" />
     <label
         :for="inputId"
-        :class="cn('-mt-1.5 pl-4 peer-disabled:cursor-not-allowed peer-disabled:opacity-30', props.labelClass)"
+        :class="cn('-mt-1.5 pl-4 peer-disabled:cursor-not-allowed peer-disabled:opacity-30', props.labelBlockClass)"
     >
-      <h5 class="text-dark text-base font-semibold">{{ labelTxt }}</h5>
-      <p class="mt-1 text-dark-secondary text-sm font-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      <h5 :class="cn('text-dark text-base font-semibold', props.labelClass)">{{ labelTxt }}</h5>
+      <p :class="cn('mt-1 text-dark-secondary text-sm font-normal', props.labelDescriptionClass)">{{ labelDescription }}</p>
     </label>
   </div>
 </template>
