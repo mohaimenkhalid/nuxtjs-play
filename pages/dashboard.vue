@@ -26,6 +26,7 @@ import PrimaryRadio from "~/components/custom-ui/primary-radio/PrimaryRadio.vue"
 import PrimaryCheckbox from "@/components/custom-ui/primary-checkbox/PrimaryCheckbox.vue";
 import MobileInput from "@/components/custom-ui/mobile-input/MobileInput.vue";
 import SecondaryRadio from "~/components/custom-ui/secondary-radio/SecondaryRadio.vue";
+import TertiaryRadio from "~/components/custom-ui/tertiary-radio/TertiaryRadio.vue";
 
 definePageMeta({
   middleware: 'auth',
@@ -82,6 +83,16 @@ useHead({
             </template>
           </SecondaryRadio>
         </div>
+      </div>
+
+      <div>
+        <Label>
+          Tertiary Radio
+        </Label>
+        <RadioGroup default-value="Coupon 1" class="flex gap-x-2">
+          <TertiaryRadio inputId="coupon1" labelTxt="Coupon 1" />
+          <TertiaryRadio inputId="coupon2" labelTxt="Coupon 2" />
+        </RadioGroup>
       </div>
 
       <div>
