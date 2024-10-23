@@ -40,8 +40,8 @@ export const useAuthStore = defineStore('auth', {
                     this.setLoginData(response.data)
                     resolve(response.data)
                 } catch (e) {
-                    reject(e.response.data);
                     this.isLoading = false
+                    reject(e.response.data);
                 }
 
             })

@@ -16,9 +16,10 @@ export const useCategoryStore = defineStore('category', {
                     const response = await categoryService.getCategoryList()
                     resolve(response.data)
                     this.isLoading = false
-                } catch (e) {
-                    reject(e.response.data);
-                    this.isLoading = false
+                } catch (e: any) {
+                    reject(e?.response?.data);
+                } finally {
+
                 }
 
             })

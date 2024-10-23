@@ -1,10 +1,11 @@
 import axios from "axios";
 import {getToken} from "~/storage/appStorage";
+import {toast} from "vue-sonner";
 
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL //config.public.API_BASE_URL, // Set your base URL here
 })
-
+let controller: any;
 let isRefreshing = false
 let failedQueue: any[] = []
 
@@ -24,6 +25,14 @@ axiosInstance.interceptors.request.use((config: any) => {
     if (token) {
         config.headers.Authorization = `Bearer ${token}`
     }
+    // If there's an existing controller, abort it
+    if (controller) {
+        controller.abort();
+    }
+    //create new AbortController;
+    controller = new AbortController();
+    config.signal = controller.signal;
+
     return config
 }, (error) => {
     return Promise.reject(error)
@@ -68,7 +77,9 @@ axiosInstance.interceptors.response.use((response) => {
     //             })
     //     })
     // }
-
+    if(error.code === 'ERR_NETWORK' && error.message === 'Network Error') {
+        toast("Check your internet connection!")
+    }
     return Promise.reject(error)
 })
 
