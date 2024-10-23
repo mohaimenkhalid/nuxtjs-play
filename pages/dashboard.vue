@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { RiHeartFill } from "@remixicon/vue";
+import { RiHeartFill, RiMenLine, RiWomenLine } from "@remixicon/vue";
 import { Button } from '~/components/ui/button'
 import {
   Dialog,
@@ -25,6 +25,7 @@ import { RadioGroup } from '@/components/ui/radio-group'
 import PrimaryRadio from "~/components/custom-ui/primary-radio/PrimaryRadio.vue";
 import PrimaryCheckbox from "@/components/custom-ui/primary-checkbox/PrimaryCheckbox.vue";
 import MobileInput from "@/components/custom-ui/mobile-input/MobileInput.vue";
+import SecondaryRadio from "~/components/custom-ui/secondary-radio/SecondaryRadio.vue";
 
 definePageMeta({
   middleware: 'auth',
@@ -56,13 +57,31 @@ useHead({
 
     <div class="my-10 space-y-4">
       <div>
-        <Label for="username">
-          Radio
+        <Label>
+          Primary Radio
         </Label>
-        <RadioGroup default-value="comfortable">
+        <RadioGroup default-value="Radio 1">
           <PrimaryRadio inputId="radio1" labelTxt="Radio 1" />
           <PrimaryRadio inputId="radio2" labelTxt="Radio 2" />
         </RadioGroup>
+      </div>
+
+      <div>
+        <Label>
+          Secondary Radio
+        </Label>
+        <div class="flex gap-x-1">
+          <SecondaryRadio inputId="male" name="gender" labelTxt="Male" :checked="true">
+            <template #icon>
+              <RiMenLine class="text-2xl text-dark-shade1" />
+            </template>
+          </SecondaryRadio>
+          <SecondaryRadio inputId="female" name="gender" labelTxt="Female">
+            <template #icon>
+              <RiWomenLine class="text-2xl text-dark-shade1" />
+            </template>
+          </SecondaryRadio>
+        </div>
       </div>
 
       <div>
