@@ -27,6 +27,7 @@ import PrimaryCheckbox from "@/components/custom-ui/primary-checkbox/PrimaryChec
 import MobileInput from "@/components/custom-ui/mobile-input/MobileInput.vue";
 import SecondaryRadio from "~/components/custom-ui/secondary-radio/SecondaryRadio.vue";
 import TertiaryRadio from "~/components/custom-ui/tertiary-radio/TertiaryRadio.vue";
+import PrimaryFileUpload from "~/components/custom-ui/primary-file-upload/PrimaryFileUpload.vue";
 
 definePageMeta({
   middleware: 'auth',
@@ -163,9 +164,16 @@ useHead({
 
       <div>
         <Label for="username">
-          File Input
+          File Upload
         </Label>
         <Input type="file" id="username" placeholder="Upload file" />
+      </div>
+
+      <div>
+        <Label for="username">
+          Primary File Upload
+        </Label>
+        <PrimaryFileUpload />
       </div>
     </div>
 
