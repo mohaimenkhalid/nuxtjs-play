@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
     :class="
       cn(
-        'aspect-square h-5 w-5 bg-white rounded-full border border-borderColor shadow-lg shadow-ring-gray focus-within:border-success disabled:cursor-not-allowed disabled:opacity-30',
+        'aspect-square h-5 w-5 bg-white rounded-full border border-borderColor shadow-radio focus:border-success disabled:cursor-not-allowed disabled:opacity-30',
         props.class,
       )
     "

@@ -13,7 +13,7 @@ const props = defineProps<{
 
 <template>
   <div :class="cn('flex items-center', props.class)">
-    <RadioGroupItem :id="inputId" :value="labelTxt" />
+    <RadioGroupItem :id="inputId" :value="labelTxt" :name="labelTxt" />
     <label
       :for="inputId"
       :class="cn('pl-3 text-textColor-quaternary text-base font-normal peer-disabled:cursor-not-allowed peer-disabled:opacity-30', props.labelClass)"

@@ -100,7 +100,7 @@ const _signIn = async () => {
         </form>
       </CardContent>
       <CardFooter>
-        <Button type="submit" @click="_signIn" :disabled="authStore.getIsLoading">
+        <Button variant="info" type="submit" @click="_signIn" :disabled="authStore.getIsLoading">
           <Loader2 v-if="authStore.getIsLoading" class="w-4 h-4 mr-2 animate-spin"/>
           {{ !authStore.getIsLoading ? 'Submit' : '' }}
         </Button>

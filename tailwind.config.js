@@ -105,7 +105,8 @@ module.exports = {
       boxShadow: {
         'xs': "0px 1px 2px 0px",
         'sm': "2px 2px 24px 0px",
-        'lg': "0px 0px 0px 4px",
+        // 'lg': "0px 0px 0px 4px",
+        'radio': '0px 0px 0px 4px rgba(152, 162, 179, 0.14)',
       },
       screens: {
         '2xl': '1400px',
