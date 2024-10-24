@@ -7,7 +7,7 @@ import { RiFileUploadLine, RiCloseCircleLine, RiInformationLine } from "@remixic
     <!-- if -->
     <div class="relative">
       <input type="file" name="" id="file-upload" hidden>
-      <label for="file-upload" class="block py-4 px-6 w-full h-[126px] bg-white border border-borderColor-secondary rounded-3xl">
+      <label for="file-upload" class="block py-4 px-4 md:px-6 w-full min-h-[126px] bg-white border border-borderColor-secondary rounded-3xl">
         <div class="h-full space-y-3">
           <div class="p-2.5 border border-borderColor-secondary rounded-md w-max mx-auto">
             <RiFileUploadLine class="text-dark-primary" />
