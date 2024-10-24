@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "string-width": "^1.0.2 || 2 || 3 || 4",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/color-mode": "^3.5.1",
     "@nuxtjs/i18n": "^8.5.5",
