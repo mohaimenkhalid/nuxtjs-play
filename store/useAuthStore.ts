@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import {getToken, getUserSession, setLoginData, setUserSession, removeAuthStoreData} from "~/storage/appStorage"
 import * as authService from "~/services/auth.service"
+import type {SignForm} from "~/types/user.types"
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
@@ -12,7 +13,6 @@ export const useAuthStore = defineStore('auth', {
         user: {},
     }),
     getters: {
-        getCounter: (state) => state.token,
         getIsLoading: (state) => state.isLoading,
         getToken: (state) => state.token,
         getIsInitializingStore: (state) => state.isInitializingStore,
@@ -32,14 +32,14 @@ export const useAuthStore = defineStore('auth', {
             this.isAuth = true;
         },
 
-        loginAction(formData: object) {
+        loginAction(formData: SignForm) {
             this.isLoading = true
             return new Promise(async (resolve, reject) => {
                 try {
                     const response = await authService.signIn(formData)
                     this.setLoginData(response.data)
                     resolve(response.data)
-                } catch (e) {
+                } catch (e: any) {
                     this.isLoading = false
                     reject(e.response.data);
                 }
@@ -56,7 +56,7 @@ export const useAuthStore = defineStore('auth', {
                     this.user = response.data
                     resolve(response.data)
                     this.isLoading = false
-                } catch (e) {
+                } catch (e: any) {
                     reject(e.response.data);
                     this.isLoading = false
                 }
