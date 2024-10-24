@@ -41,37 +41,37 @@ useHead({
 
 const coupons = ref([
   {
-    id: 1,
+    id: 'coupon1',
     labelTxt: 'Coupon 1',
     labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
   },
   {
-    id: 2,
+    id: 'coupon2',
     labelTxt: 'Coupon 2',
     labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
   },
   {
-    id: 3,
+    id: 'coupon3',
     labelTxt: 'Coupon 3',
     labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
   },
   {
-    id: 4,
+    id: 'coupon4',
     labelTxt: 'Coupon 4',
     labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
   },
   {
-    id: 5,
+    id: 'coupon5',
     labelTxt: 'Coupon 5',
     labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
   },
   {
-    id: 6,
+    id: 'coupon6',
     labelTxt: 'Coupon 6',
     labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
   },
   {
-    id: 7,
+    id: 'coupon7',
     labelTxt: 'Coupon 7',
     labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
   },
@@ -83,7 +83,7 @@ const coupons = ref([
     <Card class="w-[350px]">
       <CardHeader>
         <CardTitle>
-          <h3>Total Product</h3>
+          Total Product
         </CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
@@ -91,7 +91,7 @@ const coupons = ref([
        1000K+
         <Button variant="link" size="md">
           <RiHeartFill size="16px" class="text-primary hover:text-secondary" />
-          <p>Destructive</p>
+          <span>Destructive</span>
         </Button>
       </CardContent>
     </Card>
@@ -129,15 +129,15 @@ const coupons = ref([
         <Label>
           Tertiary Radio
         </Label>
-        <RadioGroup default-value="Coupon 1" class="flex gap-x-2">
+        <RadioGroup default-value="Coupon 10" class="flex gap-x-2">
           <TertiaryRadio
-              inputId="coupon1"
-              labelTxt="Coupon 1"
+              inputId="coupon10"
+              labelTxt="Coupon 10"
               labelDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, veritatis."
           />
           <TertiaryRadio
-              inputId="coupon2"
-              labelTxt="Coupon 2"
+              inputId="coupon20"
+              labelTxt="Coupon 20"
               labelDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, veritatis."
           />
         </RadioGroup>
