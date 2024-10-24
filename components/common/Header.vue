@@ -46,6 +46,7 @@ async function _signOut() {
             <div class="mr-3 flex items-center gap-x-2">
               <DarkModeSwitcher />
               <LanguageSwitcher />
+              <client-only>
               <DropdownMenu>
                 <DropdownMenuTrigger>mohaimen</DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -55,6 +56,7 @@ async function _signOut() {
                   <DropdownMenuItem @click="_signOut()">Logout</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+                </client-only>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import {Label} from "~/components/ui/label";
 
 const props = defineProps<{
-  inputId?: number | string;
+  inputId?: string;
   labelTxt?: string;
   labelClass?: string;
   labelBlockClass?: string;
