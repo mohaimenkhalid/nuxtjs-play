@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import {Label} from "~/components/ui/label";
 
 const props = defineProps<{
-  inputId?: [Number, String][];
+  inputId?: number | string;
   labelTxt?: string;
   labelClass?: string;
   labelBlockClass?: string;
@@ -15,7 +15,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div :class="cn('p-4 w-[276px] flex bg-white border border-dark-light rounded-md', props.class)">
+  <div :class="cn('p-4 flex bg-white border border-dark-light rounded-md', props.class)">
     <RadioGroupItem :id="inputId" :value="labelTxt" :name="labelTxt" />
     <label
         :for="inputId"

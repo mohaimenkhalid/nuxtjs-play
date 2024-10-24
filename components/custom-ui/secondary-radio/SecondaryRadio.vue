@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils'
 
 const props = defineProps<{
-  inputId?: [Number, String][];
+  inputId?: number | string;
   name?: string;
   labelTxt?: string;
   labelBlockClass?: string;
