@@ -27,6 +27,8 @@ import PrimaryCheckbox from "@/components/custom-ui/primary-checkbox/PrimaryChec
 import MobileInput from "@/components/custom-ui/mobile-input/MobileInput.vue";
 import SecondaryRadio from "~/components/custom-ui/secondary-radio/SecondaryRadio.vue";
 import TertiaryRadio from "~/components/custom-ui/tertiary-radio/TertiaryRadio.vue";
+import PrimaryFileUpload from "~/components/custom-ui/primary-file-upload/PrimaryFileUpload.vue";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 
 definePageMeta({
   middleware: 'auth',
@@ -36,6 +38,44 @@ useHead({
   title: 'Dashboard',
 })
 
+
+const coupons = ref([
+  {
+    id: 1,
+    labelTxt: 'Coupon 1',
+    labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
+  },
+  {
+    id: 2,
+    labelTxt: 'Coupon 2',
+    labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
+  },
+  {
+    id: 3,
+    labelTxt: 'Coupon 3',
+    labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
+  },
+  {
+    id: 4,
+    labelTxt: 'Coupon 4',
+    labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
+  },
+  {
+    id: 5,
+    labelTxt: 'Coupon 5',
+    labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
+  },
+  {
+    id: 6,
+    labelTxt: 'Coupon 6',
+    labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
+  },
+  {
+    id: 7,
+    labelTxt: 'Coupon 7',
+    labelDescription: 'Lorem ipsum dolor sit amet, consectetur',
+  },
+]);
 </script>
 
 <template>
@@ -163,13 +203,20 @@ useHead({
 
       <div>
         <Label for="username">
-          File Input
+          File Upload
         </Label>
         <Input type="file" id="username" placeholder="Upload file" />
       </div>
+
+      <div>
+        <Label for="username">
+          Primary File Upload
+        </Label>
+        <PrimaryFileUpload />
+      </div>
     </div>
 
-    <div class="mt-5">
+    <div class="my-5">
       <Dialog>
         <DialogTrigger as-child>
           <Button variant="info">
@@ -207,6 +254,30 @@ useHead({
           </DialogFooter>
         </DialogContent>
       </Dialog>
+    </div>
+
+    <!--Multi Column Carousel-->
+    <div>
+      <h3 class="mb-3 font-semibold">Multi Column Carousel</h3>
+      <Carousel
+        :opts="{
+          align: 'start',
+        }"
+      >
+        <RadioGroup default-value="Coupon 1">
+          <CarouselContent class="-ml-2">
+              <CarouselItem v-for="(coupon, index) in coupons" :key="index?.id" class="basis-[276px] pl-2">
+                <TertiaryRadio
+                    :inputId="coupon?.id"
+                    :labelTxt="coupon?.labelTxt"
+                    :labelDescription="coupon?.labelDescription"
+                />
+              </CarouselItem>
+          </CarouselContent>
+        </RadioGroup>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
 
   </div>

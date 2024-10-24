@@ -49,6 +49,7 @@ module.exports = {
         },
         dark: {
           DEFAULT: "var(--dark)",
+          primary: "var(--dark-primary)",
           secondary: "var(--dark-secondary)",
           shade1: "var(--dark-shade-1)",
           shade2: "var(--dark-shade-2)",
@@ -64,6 +65,7 @@ module.exports = {
         textColor: {
           DEFAULT: "var(--text-primary)",
           secondary: "var(--text-secondary)",
+          tertiary: "var(--text-tertiary)",
           quaternary: "var(--text-quaternary)",
         },
         body: {
@@ -81,6 +83,7 @@ module.exports = {
         borderColor: {
           light: "var(--border-light)",
           DEFAULT: "var(--border)",
+          secondary: "var(--border-secondary)",
         },
         ring: {
           light: "var(--ring-light)",

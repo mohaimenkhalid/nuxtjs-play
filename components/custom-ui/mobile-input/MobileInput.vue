@@ -12,7 +12,7 @@ import {
 import { RiFlagFill } from "@remixicon/vue";
 
 const props = defineProps<{
-  inputId?: [Number, String][];
+  inputId?: number | string;
   placeholder?: string;
 }>();
 </script>

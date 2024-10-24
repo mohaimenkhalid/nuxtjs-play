@@ -22,6 +22,7 @@
     --info-light: #EFF7FD;
 
     --dark: #151414;
+    --dark-primary: #141B34;
     --dark-secondary: #4D4D4F;
     --dark-shade-1: #676769;
     --dark-shade-2: #747476;
@@ -34,6 +35,7 @@
 
     --text-primary: #4D4D4F;
     --text-secondary: #344054;
+    --text-tertiary: #475467;
     --text-quaternary: #667085;
 
     --body: #F8FAFF;
@@ -44,6 +46,7 @@
     --disabled: #EFF7FD;
 
     --border: #D0D5DD;
+    --border-secondary: #EAECF0;
     --border-light: #EDEDED;
     --ring: rgba(12, 59, 100, 0.09);
     --ring-secondary: rgba(16, 24, 40, 0.05);
