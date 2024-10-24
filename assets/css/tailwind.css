@@ -59,10 +59,10 @@
   }
 
   .dark {
-    --primary: #F04935;
+    --primary: #0C3B64;
     --primary-light: #FEF2F0;
     --primary-dark: #F15342;
-    --secondary: #0C3B64;
+    --secondary: #F15342;
     --secondary-light: #CFE6F9;
     --secondary-dark: #104E85;
     /*--tertiary: #EFF7FD;*/

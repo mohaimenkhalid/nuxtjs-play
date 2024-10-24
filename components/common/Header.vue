@@ -47,16 +47,16 @@ async function _signOut() {
               <DarkModeSwitcher />
               <LanguageSwitcher />
               <client-only>
-              <DropdownMenu>
-                <DropdownMenuTrigger>mohaimen</DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem @click="_signOut()">Logout</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-                </client-only>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>mohaimen</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                    <DropdownMenuItem @click="_signOut()">Logout</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </client-only>
             </div>
           </div>
         </div>
