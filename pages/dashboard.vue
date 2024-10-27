@@ -30,9 +30,9 @@ import TertiaryRadio from "~/components/custom-ui/tertiary-radio/TertiaryRadio.v
 import PrimaryFileUpload from "~/components/custom-ui/primary-file-upload/PrimaryFileUpload.vue";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 
-definePageMeta({
-  middleware: 'auth',
-});
+// definePageMeta({
+//   middleware: 'auth',
+// });
 
 useHead({
   title: 'Dashboard',

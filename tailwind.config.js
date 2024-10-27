@@ -110,6 +110,7 @@ module.exports = {
         'sm': "2px 2px 24px 0px",
         // 'lg': "0px 0px 0px 4px",
         'radio': '0px 0px 0px 4px rgba(152, 162, 179, 0.14)',
+        'borderShadow': '2px 2px 16px 0px rgba(12, 59, 100, 0.20)',
       },
       screens: {
         '2xl': '1400px',
