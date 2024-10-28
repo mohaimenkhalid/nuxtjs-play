@@ -20,9 +20,10 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          // light: '#92acbb',
+          light: 'var(--primary-light)',
+          light2: 'var(--primary-light2)',
           DEFAULT: "var(--primary)",
-          // dark: '#00425e',
+          dark: 'var(--primary-dark)',
         },
         secondary: {
           light: "var(--secondary-light)",
