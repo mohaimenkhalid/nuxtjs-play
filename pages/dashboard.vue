@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { RiHeartFill, RiMenLine, RiWomenLine } from "@remixicon/vue";
+import { RiHeartFill, RiMenLine, RiWomenLine, RiTimerFlashLine } from "@remixicon/vue";
 import { Button } from '~/components/ui/button'
 import {
   Dialog,
@@ -38,12 +38,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { Separator } from '@/components/ui/separator'
+
 
 // definePageMeta({
 //   middleware: 'auth',
@@ -295,7 +291,7 @@ const coupons = ref([
       </Carousel>
     </div>
 
-    <!--Breadcrumbs -->
+    <!-- Breadcrumbs -->
     <div class="py-10">
       <h3 class="mb-3 font-semibold">Breadcrumb</h3>
       <Breadcrumb>
@@ -323,6 +319,32 @@ const coupons = ref([
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+    </div>
+
+    <!-- Separator -->
+    <div class="w-[400px]">
+      <h3 class="mb-3 font-semibold">Separator</h3>
+      <Separator class="my-4 bg-red-400" label="Or" />
+      <div class="my-5 flex h-5 items-center space-x-4 text-sm">
+        <div>Blog</div>
+        <Separator orientation="vertical" />
+        <div>Docs</div>
+        <Separator orientation="vertical" />
+        <div>Source</div>
+      </div>
+
+      <div>
+        <div v-for="(n, index) in coupons" :key="index" class="flex justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-x-2">
+              <RiTimerFlashLine class="text-gray-shade4 w-4 h-4" />
+              <p class="text-dark-shade1 text-sm">10:00 am</p>
+            </div>
+            <Separator v-if="index < coupons.length - 1" orientation="vertical" class="h-2 my-1 mx-2" labelClass="bg-body" />
+          </div>
+          <p class="text-dark-shade1 text-sm">10:00 am</p>
+        </div>
+      </div>
     </div>
 
   </div>
