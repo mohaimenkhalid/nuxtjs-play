@@ -161,7 +161,7 @@ const value = ref('')
         <PrimaryFileUpload />
       </div>
 
-      <div class="pb-48">
+      <div>
         <Label for="">
           Combobox
         </Label>
