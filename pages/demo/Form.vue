@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RadioGroup } from '@/components/ui/radio-group'
 import PrimaryRadio from "~/components/custom-ui/primary-radio/PrimaryRadio.vue";
 import PrimaryCheckbox from "@/components/custom-ui/primary-checkbox/PrimaryCheckbox.vue";
@@ -7,6 +8,35 @@ import SecondaryRadio from "~/components/custom-ui/secondary-radio/SecondaryRadi
 import TertiaryRadio from "~/components/custom-ui/tertiary-radio/TertiaryRadio.vue";
 import PrimaryFileUpload from "~/components/custom-ui/primary-file-upload/PrimaryFileUpload.vue";
 import { RiMenLine, RiWomenLine } from "@remixicon/vue";
+
+import { Button } from '@/components/ui/button'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command'
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
+// import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
+
+const frameworks = [
+  { value: 'next.js', label: 'Next.js' },
+  { value: 'sveltekit', label: 'SvelteKit' },
+  { value: 'nuxt', label: 'Nuxt' },
+  { value: 'remix', label: 'Remix' },
+  { value: 'astro', label: 'Astro' },
+]
+
+const open = ref(false)
+const value = ref('')
 </script>
 
 <template>
@@ -130,6 +160,57 @@ import { RiMenLine, RiWomenLine } from "@remixicon/vue";
         </Label>
         <PrimaryFileUpload />
       </div>
+
+      <div class="pb-48">
+        <Label for="">
+          Combobox
+        </Label>
+        <Popover v-model:open="open">
+          <PopoverTrigger as-child>
+            <Button
+                variant="border"
+                role="combobox"
+                :aria-expanded="open"
+                class="w-[200px] justify-between cursor-text"
+            >
+              {{ value
+                ? frameworks.find((framework) => framework.value === value)?.label
+                : "Select framework..." }}
+              <RiWomenLine class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent class="w-[200px] p-0">
+            <Command>
+              <CommandInput class="h-9" placeholder="Search framework..." />
+              <CommandEmpty>No framework found.</CommandEmpty>
+              <CommandList>
+                <CommandGroup>
+                  <CommandItem
+                      v-for="framework in frameworks"
+                      :key="framework.value"
+                      :value="framework.value"
+                      @select="(ev) => {
+                if (typeof ev.detail.value === 'string') {
+                  value = ev.detail.value
+                }
+                open = false
+              }"
+                  >
+                    {{ framework.label }}
+                    <RiMenLine
+                        :class="cn(
+                  'ml-auto h-4 w-4',
+                  value === framework.value ? 'opacity-100' : 'opacity-0',
+                )"
+                    />
+                  </CommandItem>
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
+
     </div>
   </div>
 </template>
