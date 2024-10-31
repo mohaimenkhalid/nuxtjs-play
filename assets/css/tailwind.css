@@ -122,6 +122,10 @@
   input {
     @apply bg-transparent focus:outline-none;
   }
+
+  a {
+    @apply cursor-pointer
+  }
 }
 
 @layer utilities {
