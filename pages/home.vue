@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-
+import HeroSection from "~/components/home/HeroSection.vue";
 </script>
 
 <template>
   <div>
-    <section class="py-20">
-      home page
-    </section>
+    <HeroSection />
   </div>
 </template>

@@ -123,6 +123,13 @@
   }
 }
 
+@layer utilities {
+  .large-heading {
+    @apply text-dark text-[64px] leading-[70px];
+  }
+}
+
+
 
 
 
