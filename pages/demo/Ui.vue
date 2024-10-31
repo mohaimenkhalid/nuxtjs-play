@@ -144,7 +144,7 @@ useHead({
               <RiTimerFlashLine class="text-gray-shade4 w-4 h-4" />
               <p class="text-dark-shade1 text-sm">10:00 am</p>
             </div>
-            <Separator v-if="index < coupons.length - 1" orientation="vertical" class="h-2 my-1 mx-2" labelClass="bg-body" />
+            <Separator v-if="index < coupons.length - 1" orientation="vertical" class="h-2 my-1 mx-2" labelClass="bg-background" />
           </div>
           <p class="text-dark-shade1 text-sm">10:00 am</p>
         </div>

@@ -46,6 +46,7 @@ module.exports = {
         },
         info: {
           light: "var(--info-light)",
+          light2: "var(--info-light2)",
           DEFAULT: "var(--info)",
         },
         dark: {
@@ -69,12 +70,10 @@ module.exports = {
           tertiary: "var(--text-tertiary)",
           quaternary: "var(--text-quaternary)",
         },
-        body: {
-          DEFAULT: "var(--body)",
+        background: {
+          DEFAULT: "var(--background)",
+          shade3: "var(--background-shade-3)",
         },
-        // surface: {
-        //   DEFAULT: "var(--surface)",
-        // },
         link: {
           DEFAULT: "var(--link)",
         },
