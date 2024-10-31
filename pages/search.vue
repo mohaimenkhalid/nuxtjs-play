@@ -1,25 +1,11 @@
 <script lang="ts" setup>
 import SearchBar from "~/components/search/SearchBar.vue";
-import SearchLeft from "~/components/search/SearchLeft.vue";
-import SearchRight from "~/components/search/SearchRight.vue";
+import SearchResult from "~/components/search/SearchResult.vue";
 </script>
 
 <template>
   <div>
     <SearchBar />
-
-    <section class="pt-28">
-      <div class="container">
-        <div class="flex gap-6">
-          <div class="grow shrink-0">
-            <SearchLeft />
-          </div>
-          <div class="w-[453px] shrink-0">
-            <SearchRight />
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <SearchResult />
   </div>
 </template>
