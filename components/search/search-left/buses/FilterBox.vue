@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/select'
 import { RiEqualizer3Fill, RiIndeterminateCircleLine } from "@remixicon/vue";
 
-const isAllFilter = ref(false)
+const isShowAllFilter = ref(false)
 </script>
 
 <template>
@@ -22,7 +22,7 @@ const isAllFilter = ref(false)
       <div>
         <!-- v-if -->
         <div
-            v-if="!isAllFilter"
+            v-if="!isShowAllFilter"
             class="flex items-center gap-x-2"
         >
           <div>
@@ -41,7 +41,7 @@ const isAllFilter = ref(false)
           </div>
           <div>
             <Button
-                @click="isAllFilter = true"
+                @click="isShowAllFilter = true"
                 variant="border"
                 class="h-9 bg-white border-gray-shade3 text-dark-secondary font-normal"
             >
@@ -54,7 +54,7 @@ const isAllFilter = ref(false)
         <!-- v-else -->
         <div
             v-else
-            @click="isAllFilter = !isAllFilter"
+            @click="isShowAllFilter = !isShowAllFilter"
             class="text-right"
         >
           <Button variant="border" class="h-9 border-primary text-primary font-normal">
@@ -66,7 +66,7 @@ const isAllFilter = ref(false)
     </div>
 
     <div
-        v-if="isAllFilter"
+        v-if="isShowAllFilter"
         class="flex items-center gap-x-2"
     >
       <div v-for="n in 5" class="grow">
