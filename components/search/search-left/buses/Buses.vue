@@ -1,3 +1,5 @@
 <template>
-  Buses content here
+  <div>
+    Buses content here
+  </div>
 </template>

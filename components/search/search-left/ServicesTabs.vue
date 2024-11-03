@@ -40,7 +40,7 @@ const services = [
 <template>
   <div>
     <client-only>
-      <Tabs :default-value="`tab-${services[2]?.id}`">
+      <Tabs :default-value="`tab-${services[2]?.id}`" class="">
         <TabsList class="">
           <TabsTrigger
               v-for="service in services"
@@ -61,7 +61,9 @@ const services = [
             v-for="service in services"
             :key="service?.id"
             :value="`tab-${service?.id}`"
+            class="mt-6"
         >
+          <separator class="mb-6 bg-gray-light" />
           <component :is="service?.component" />
         </TabsContent>
       </Tabs>
