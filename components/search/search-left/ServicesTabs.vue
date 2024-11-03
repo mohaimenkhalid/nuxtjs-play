@@ -63,7 +63,7 @@ const services = [
             :value="`tab-${service?.id}`"
             class="mt-6"
         >
-          <separator class="mb-6 bg-gray-light" />
+          <separator class="mb-5 bg-gray-light" />
           <component :is="service?.component" />
         </TabsContent>
       </Tabs>
