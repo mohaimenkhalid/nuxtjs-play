@@ -4,7 +4,7 @@
 
 <template>
   <div class="space-y-8">
-    <img src="@/assets/imgs/map.png" alt="map">
+    <img src="../../../assets/imgs/map.png" alt="map">
     <p class="text-dark-secondary text-xs">
       Price includes taxes.
       Please note that prices may change before purchase depending on availability.
