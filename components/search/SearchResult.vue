@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import SearchLeft from "~/components/search/SearchLeft.vue";
-import SearchRight from "~/components/search/SearchRight.vue";
+import SearchLeft from "~/components/search/search-left/SearchLeft.vue";
+import SearchRight from "~/components/search/search-right/SearchRight.vue";
 </script>
 
 <template>
