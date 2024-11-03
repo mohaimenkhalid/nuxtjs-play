@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LoadingIndicator from "~/components/app/LoadingIndicator.vue";
-import Header from "~/components/common/Header.vue";
-import Footer from "~/components/common/Footer.vue";
+import Header from "~/components/app/Header.vue";
+import Footer from "~/components/app/Footer.vue";
 </script>
 
 <template>

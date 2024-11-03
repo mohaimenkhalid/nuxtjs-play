@@ -13,6 +13,8 @@ export const buttonVariants = cva(
           danger: 'bg-danger text-white',
           warning: 'bg-warning text-white',
           info: 'bg-info text-white',
+          gray: 'bg-back text-white',
+          grayLight: 'bg-background-shade3 text-white',
           border: 'border border-borderColor',
           link: 'text-primary underline-offset-4 hover:underline',
         },

@@ -23,7 +23,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table'
+} from '~/components/ui/table/index.js'
 
 const productFilterForm = reactive({
   title: title,

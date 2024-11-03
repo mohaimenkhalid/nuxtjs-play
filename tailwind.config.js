@@ -20,9 +20,10 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          // light: '#92acbb',
+          light: 'var(--primary-light)',
+          light2: 'var(--primary-light-2)',
           DEFAULT: "var(--primary)",
-          // dark: '#00425e',
+          dark: 'var(--primary-dark)',
         },
         secondary: {
           light: "var(--secondary-light)",
@@ -45,6 +46,7 @@ module.exports = {
         },
         info: {
           light: "var(--info-light)",
+          light2: "var(--info-light2)",
           DEFAULT: "var(--info)",
         },
         dark: {
@@ -68,12 +70,10 @@ module.exports = {
           tertiary: "var(--text-tertiary)",
           quaternary: "var(--text-quaternary)",
         },
-        body: {
-          DEFAULT: "var(--body)",
+        background: {
+          DEFAULT: "var(--background)",
+          shade3: "var(--background-shade-3)",
         },
-        // surface: {
-        //   DEFAULT: "var(--surface)",
-        // },
         link: {
           DEFAULT: "var(--link)",
         },
@@ -110,6 +110,7 @@ module.exports = {
         'sm': "2px 2px 24px 0px",
         // 'lg': "0px 0px 0px 4px",
         'radio': '0px 0px 0px 4px rgba(152, 162, 179, 0.14)',
+        'borderShadow': '2px 2px 16px 0px rgba(12, 59, 100, 0.20)',
       },
       screens: {
         '2xl': '1400px',

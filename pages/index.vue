@@ -46,7 +46,7 @@ const _signIn = async () => {
     const response = await authStore.loginAction(formData);
     if(response.access_token) {
       await authStore.getUserSessionAction();
-      await navigateTo(localePath('/dashboard'));
+      await navigateTo(localePath('/home'));
       toast.success("Login successfully!")
     }
   } catch (e) {
