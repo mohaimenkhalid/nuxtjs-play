@@ -32,7 +32,7 @@ const detailsTabs = [
 
 <template>
     <div class="mt-4 pt-4 border-t border-gray">
-      <Tabs :default-value="`details-tab-${detailsTabs[0]?.id}`">
+      <Tabs :default-value="`details-tab-${detailsTabs[2]?.id}`">
         <TabsList>
           <TabsTrigger
             v-for="tab in detailsTabs"

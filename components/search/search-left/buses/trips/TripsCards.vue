@@ -16,7 +16,7 @@ const toggleDetails = () => {
       class="w-full p-4 bg-white shadow-sm shadow-ring rounded-md"
     >
       <TripInfo :isSeeAllDetails="isSeeAllDetails" @toggleDetails="toggleDetails" />
-      <TripsDetails v-if="isSeeAllDetails"/>
+      <TripsDetails v-if="isSeeAllDetails" />
     </div>
   </div>
 </template>
