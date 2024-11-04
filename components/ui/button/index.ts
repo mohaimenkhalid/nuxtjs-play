@@ -14,6 +14,7 @@ export const buttonVariants = cva(
           danger: 'bg-danger text-white',
           warning: 'bg-warning text-white',
           info: 'bg-info text-white',
+          infoLight: 'bg-info-light2 text-info',
           gray: 'bg-back text-white',
           grayLight: 'bg-background-shade3 text-white',
           border: 'border border-borderColor',
@@ -21,8 +22,8 @@ export const buttonVariants = cva(
         },
         size: {
           default: 'px-[14px] py-2.5 text-sm',
-          xs: 'py-1 px-2 text-xs rounded font-normal',
-          sm: 'py-2 px-3 text-sm',
+          xs: 'py-1 px-2 text-xs',
+          sm: 'py-2.5 px-3.5 text-sm',
           md: 'py-4 px-6 text-base',
           lg: 'py-[18px] px-6 text-base',
           icon: 'px-4',

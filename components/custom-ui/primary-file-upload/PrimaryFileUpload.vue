@@ -32,7 +32,7 @@ import { RiFileUploadLine, RiCloseCircleLine, RiInformationLine } from "@remixic
       </label>
 
       <div class="flex gap-x-4 absolute left-6 top-1/2 -translate-y-1/2 z-10">
-        <img src="@/assets/imgs/jatri-logo.png" alt="jatri logo" class="max-w-[180px] max-h-[100px]">
+        <img src="../../../assets/imgs/logo/jatri-logo.png" alt="jatri logo" class="max-w-[180px] max-h-[100px]">
         <RiCloseCircleLine size="20px" class="text-primary -mt-1" />
       </div>
     </div>
