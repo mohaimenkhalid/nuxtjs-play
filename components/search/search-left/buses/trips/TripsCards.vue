@@ -69,7 +69,7 @@ const isSeeAllDetails = ref(false)
             <p class="text-dark-secondary text-xs">Per seat</p>
             <p class="text-dark-secondary text-xl"><strong class="text-dark">1500</strong> BDT</p>
             <p class="text-info text-xs">4 Seats Available</p>
-            <Button size="sm" class="gap-x-1.5 px-3.5">
+            <Button size="sm" class="gap-x-1.5">
               <span>Select Seats</span>
               <img src="@/assets/imgs/icons/arrow-right-white.png" alt="arrow icon">
             </Button>
