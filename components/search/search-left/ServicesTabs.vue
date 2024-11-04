@@ -5,7 +5,7 @@ import Flights from "~/components/search/search-left/flights/Flights.vue";
 import Buses from "~/components/search/search-left/buses/Buses.vue";
 import Launches from "~/components/search/search-left/Launches/Launches.vue";
 
-const services = [
+const servicesTabs = [
   {
     id: 1,
     name: "Flights",
@@ -40,31 +40,32 @@ const services = [
 <template>
   <div>
     <client-only>
-      <Tabs :default-value="`tab-${services[2]?.id}`" class="">
+      <Tabs :default-value="`service-tab-${servicesTabs[2]?.id}`">
         <TabsList class="">
           <TabsTrigger
-              v-for="service in services"
-              :key="service?.id"
-              :value="`tab-${service?.id}`"
+              v-for="tab in servicesTabs"
+              :key="tab?.id"
+              :value="`service-tab-${tab?.id}`"
               class="p-4 text-secondary border-b-4 data-[state=active]:border-b-4 data-[state=active]:bg-secondary-light data-[state=active]:text-secondary"
           >
             <div class="flex items-center gap-x-4">
-              <img :src="service?.icon" alt="icon">
+              <img :src="tab?.icon" alt="icon">
               <div class="text-left space-y-1">
-                <h4 class="text-base font-semibold text-secondary"> {{ service?.name }} </h4>
-                <p class="text-xs text-secondary"> ৳ {{ service?.amount }} </p>
+                <h4 class="text-base font-semibold text-secondary"> {{ tab?.name }} </h4>
+                <p class="text-xs text-secondary"> ৳ {{ tab?.amount }} </p>
               </div>
             </div>
           </TabsTrigger>
         </TabsList>
+
         <TabsContent
-            v-for="service in services"
-            :key="service?.id"
-            :value="`tab-${service?.id}`"
+            v-for="tab in servicesTabs"
+            :key="tab?.id"
+            :value="`service-tab-${tab?.id}`"
             class="mt-6"
         >
           <separator class="mb-5 bg-gray-light" />
-          <component :is="service?.component" />
+          <component :is="tab?.component" />
         </TabsContent>
       </Tabs>
     </client-only>

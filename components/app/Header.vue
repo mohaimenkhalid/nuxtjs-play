@@ -8,7 +8,7 @@ import { RiUser3Line } from "@remixicon/vue";
     <div class="container py-4">
       <div class="flex justify-between items-center">
         <router-link to="/home">
-          <img src="~/assets/imgs/jatri-logo.png" alt="Jatri logo">
+          <img src="../../assets/imgs/logo/jatri-logo.png" alt="Jatri logo">
         </router-link>
         <Button class="w-[154px]">
           <span>Login</span>
