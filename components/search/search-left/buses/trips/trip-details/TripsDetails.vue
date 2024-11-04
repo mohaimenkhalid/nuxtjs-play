@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import {Button} from "~/components/ui/button";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "~/components/ui/tabs";
 import BoardingDropping from "~/components/search/search-left/buses/trips/trip-details/BoardingDropping.vue";
+import RouteVia from "~/components/search/search-left/buses/trips/trip-details/RouteVia.vue";
+import SeatInformation from "~/components/search/search-left/buses/trips/trip-details/SeatInformation.vue";
+import CancellationPolicies from "~/components/search/search-left/buses/trips/trip-details/CancellationPolicies.vue";
 
 const detailsTabs = [
   {
@@ -12,17 +15,17 @@ const detailsTabs = [
   {
     id: 2,
     name: "Route Via",
-    component: BoardingDropping,
+    component: RouteVia,
   },
   {
     id: 3,
     name: "Seat Formation",
-    component: BoardingDropping,
+    component: SeatInformation,
   },
   {
     id: 4,
     name: "Cancellation Policies",
-    component: BoardingDropping,
+    component: CancellationPolicies,
   }
 ]
 </script>
@@ -46,6 +49,10 @@ const detailsTabs = [
           :value="`details-tab-${tab?.id}`"
         >
           <component :is="tab?.component" />
+          <Button variant="primaryBorder" size="sm" class="mt-4">
+            <img src="@/assets/imgs/icons/close.png" alt="close icon">
+            <span>Close Details</span>
+          </Button>
         </TabsContent>
       </Tabs>
     </div>

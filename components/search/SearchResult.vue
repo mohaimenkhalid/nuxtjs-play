@@ -4,7 +4,7 @@ import SearchRight from "~/components/search/search-right/SearchRight.vue";
 </script>
 
 <template>
-  <section class="pt-28">
+  <section class="pt-28 pb-16">
     <div class="container">
       <div class="flex gap-6">
         <div class="grow">

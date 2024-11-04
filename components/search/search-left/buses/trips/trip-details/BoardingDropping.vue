@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import {Button} from "~/components/ui/button";
 </script>
 
 <template>
@@ -51,10 +50,5 @@ import {Button} from "~/components/ui/button";
         </div>
       </div>
     </div>
-
-    <Button variant="border" size="sm" class="mt-4 text-primary border-primary">
-      <img src="@/assets/imgs/icons/close.png" alt="close icon">
-      <span>Close Details</span>
-    </Button>
   </div>
 </template>
