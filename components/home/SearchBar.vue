@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {ref} from 'vue'
 import {Button} from '@/components/ui/button'
 import {cn} from "~/lib/utils";
@@ -11,8 +11,9 @@ import {
   RiCalendarScheduleLine, RiMapPinLine
 } from "@remixicon/vue";
 import CustomSearchFilter from "~/components/custom-ui/filter/CustomSearchFilter.vue";
+import DatePicker from "~/components/common/DatePicker.vue";
 
-const open3 = ref(false)
+
 const value = ref('')
 
 const frameworks = [
@@ -24,6 +25,7 @@ const frameworks = [
 ]
 const modelValue = ref('')
 const modelValue1 = ref('')
+const date = ref()
 
 </script>
 
@@ -56,101 +58,11 @@ const modelValue1 = ref('')
       </div>
 
       <div>
-        <Popover v-model:open="open3">
-          <PopoverTrigger as-child>
-            <Button
-                variant="grayLight"
-                role="combobox"
-                :aria-expanded="open3"
-                class=" justify-start w-full h-[68px] font-normal text-dark-shade3"
-            >
-              <RiCalendarScheduleLine class="w-5"/>
-              {{
-                value
-                    ? frameworks.find((framework) => framework.value === value)?.label
-                    : "Add Return..."
-              }}
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent class="w-[200px] p-0 bg-white z-50">
-            <Command>
-              <CommandInput class="h-9" placeholder="Search framework..."/>
-              <CommandEmpty>No framework found.</CommandEmpty>
-              <CommandList>
-                <CommandGroup>
-                  <CommandItem
-                      v-for="framework in frameworks"
-                      :key="framework.value"
-                      :value="framework.value"
-                      @select="(ev) => {
-                if (typeof ev.detail.value === 'string') {
-                  value = ev.detail.value
-                }
-                open3 = false
-              }"
-                  >
-                    {{ framework.label }}
-                    <RiMenLine
-                        :class="cn(
-                  'ml-auto h-4 w-4',
-                  value === framework.value ? 'opacity-100' : 'opacity-0',
-                )"
-                    />
-                  </CommandItem>
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </PopoverContent>
-        </Popover>
+        <DatePicker v-model="date" />
       </div>
 
       <div>
-        <Popover v-model:open="open3">
-          <PopoverTrigger as-child>
-            <Button
-                variant="grayLight"
-                role="combobox"
-                :aria-expanded="open3"
-                class=" justify-start w-full h-[68px] font-normal text-dark-shade3"
-            >
-              <RiCalendarScheduleLine class="w-5"/>
-              {{
-                value
-                    ? frameworks.find((framework) => framework.value === value)?.label
-                    : "Add Return..."
-              }}
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent class="w-[200px] p-0">
-            <Command>
-              <CommandInput class="h-9" placeholder="Search framework..."/>
-              <CommandEmpty>No framework found.</CommandEmpty>
-              <CommandList>
-                <CommandGroup>
-                  <CommandItem
-                      v-for="framework in frameworks"
-                      :key="framework.value"
-                      :value="framework.value"
-                      @select="(ev) => {
-                if (typeof ev.detail.value === 'string') {
-                  value = ev.detail.value
-                }
-                open3 = false
-              }"
-                  >
-                    {{ framework.label }}
-                    <RiMenLine
-                        :class="cn(
-                  'ml-auto h-4 w-4',
-                  value === framework.value ? 'opacity-100' : 'opacity-0',
-                )"
-                    />
-                  </CommandItem>
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </PopoverContent>
-        </Popover>
+        <DatePicker v-model="date" placeholder="Add Return" />
       </div>
 
       <div>
