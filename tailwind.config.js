@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      fontSize: {
+        '2xs': ['10px', '14px'],
+      },
       colors: {
         primary: {
           light: 'var(--primary-light)',
