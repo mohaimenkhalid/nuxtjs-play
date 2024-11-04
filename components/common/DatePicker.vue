@@ -1,49 +1,36 @@
 <script setup>
-import { ref } from 'vue'
-import { Button } from '@/components/ui/button'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
-import { Calendar } from '@/components/ui/v-calendar'
-import { format } from 'date-fns'
 import {RiCalendarScheduleLine} from "@remixicon/vue";
-import {useVModel} from "@vueuse/core";
 const props = defineProps({
   placeholder: {
     type: String,
     required: false,
     default: 'Pick a date'
   },
-  modelValue: {
-    required: true
-  }
 })
+const modelValue = defineModel();
 
-const emits = defineEmits('update:modelValue')
-const modelValue = useVModel(props, 'modelValue', emits, {
-  passive: true,
-})
-
-const open = ref(false)
 </script>
 
 <template>
-  <Popover>
-    <PopoverTrigger as-child>
-      <Button
-          variant="grayLight"
-          role="combobox"
-          :aria-expanded="open"
-          class=" justify-start w-full h-[68px] font-normal text-dark-shade3"
-      >
-        <RiCalendarScheduleLine class="w-5"/>
-        <span>{{ modelValue ? format(modelValue, 'PP') : placeholder }}</span>
-      </Button>
-    </PopoverTrigger>
-    <PopoverContent class="w-auto p-0">
-      <Calendar v-model="modelValue" />
-    </PopoverContent>
-  </Popover>
+  <v-date-picker
+      :mode="mode"
+      :masks="masks"
+      v-model="modelValue"
+      :model-config="modelConfig"
+      :timezone="'asia/dhaka'"
+      :available-dates="availableDateRange"
+      :disabled-dates="disabledDates"
+  >
+    <template v-slot="{ inputValue, togglePopover, inputEvents }">
+        <Button
+            @click="togglePopover"
+            variant="grayLight"
+            readonly
+            class="flex items-center justify-start w-full h-[68px] font-normal text-dark-shade3"
+            >
+          <RiCalendarScheduleLine class="w-5"/>
+          <span>{{ inputValue ? inputValue : placeholder }}</span>
+        </Button>
+    </template>
+  </v-date-picker>
 </template>

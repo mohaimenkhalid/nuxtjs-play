@@ -4,20 +4,20 @@ import {CommandEmpty, CommandGroup, CommandItem, CommandList} from "~/components
 import {ComboboxAnchor, ComboboxContent, ComboboxInput, ComboboxPortal, ComboboxRoot} from "radix-vue";
 import {ref} from "vue";
 
-const props = defineProps(['modelValue', 'placeholder', 'options'])
-const emit = defineEmits(['update:modelValue'])
+const props = defineProps(['placeholder', 'options'])
+// const emit = defineEmits(['update:modelValue'])
+const modelValue = defineModel()
 const open = ref(false)
 const searchTerm = ref('')
-const currentModelVal = ref(props.modelValue)
 
 
-const filteredOptions = computed(() => props.options.filter(i => !currentModelVal.value.includes(i.label)))
+const filteredOptions = computed(() => props.options.filter(i => !modelValue.value.includes(i.label)))
 
 const selectOption = (ev) => {
   if (typeof ev.detail.value === 'string') {
     searchTerm.value = ''
-    currentModelVal.value = ev.detail.value
-    emit('update:modelValue', ev.detail.value)
+    modelValue.value = ev.detail.value
+    //emit('update:modelValue', ev.detail.value)
   }
   open.value = false
   if (filteredOptions.value.length === 0) {
@@ -28,7 +28,7 @@ const selectOption = (ev) => {
 </script>
 
 <template>
-  <ComboboxRoot v-model="currentModelVal" v-model:open="open" v-model:search-term="searchTerm"
+  <ComboboxRoot v-model="modelValue" v-model:open="open" v-model:search-term="searchTerm"
                 class="w-full z-[9999]">
     <div class="flex">
       <slot></slot>
@@ -36,7 +36,7 @@ const selectOption = (ev) => {
         <ComboboxInput :placeholder="placeholder">
           <Input
               class="w-full h-[68px] font-normal text-dark-shade3 justify-start border-none pl-10"
-              v-model="currentModelVal" id="search" type="text" :class="currentModelVal.length > 0 ? 'mt-2' : ''"
+              v-model="modelValue" id="search" type="text" :class="modelValue.length > 0 ? 'mt-2' : ''"
               @keydown.enter.prevent/>
         </ComboboxInput>
       </ComboboxAnchor>

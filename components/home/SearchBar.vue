@@ -1,20 +1,14 @@
 <script setup>
 import {ref} from 'vue'
 import {Button} from '@/components/ui/button'
-import {cn} from "~/lib/utils";
-import {Popover, PopoverContent, PopoverTrigger} from "~/components/ui/popover";
-import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList} from "~/components/ui/command";
 import {
-  RiMenLine,
   RiArrowLeftRightLine,
   RiSearchLine,
-  RiCalendarScheduleLine, RiMapPinLine
+  RiMapPinLine
 } from "@remixicon/vue";
 import CustomSearchFilter from "~/components/custom-ui/filter/CustomSearchFilter.vue";
 import DatePicker from "~/components/common/DatePicker.vue";
-
-
-const value = ref('')
+import TravellerCounter from "~/components/custom-ui/popover/TravellerCounter.vue";
 
 const frameworks = [
   {value: 'next.js', label: 'Next.js dfhdr ergear drhg'},
@@ -23,10 +17,13 @@ const frameworks = [
   {value: 'remix', label: 'Remix'},
   {value: 'astro', label: 'Astro'},
 ]
-const modelValue = ref('')
+const modelValue = ref('Nuxt')
 const modelValue1 = ref('')
-const date = ref()
-
+const date = ref(new Date())
+const traver = ref({
+  adult: 0,
+  children: 0,
+})
 </script>
 
 <template>
@@ -66,52 +63,7 @@ const date = ref()
       </div>
 
       <div>
-        <Popover v-model:open="open3">
-          <PopoverTrigger as-child>
-            <Button
-                variant="grayLight"
-                role="combobox"
-                :aria-expanded="open3"
-                class=" justify-start w-full h-[68px] font-normal text-dark-shade3"
-            >
-              <RiCalendarScheduleLine class="w-5"/>
-              {{
-                value
-                    ? frameworks.find((framework) => framework.value === value)?.label
-                    : "Add Return..."
-              }}
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent class="w-[200px] p-0">
-            <Command>
-              <CommandInput class="h-9" placeholder="Search framework..."/>
-              <CommandEmpty>No framework found.</CommandEmpty>
-              <CommandList>
-                <CommandGroup>
-                  <CommandItem
-                      v-for="framework in frameworks"
-                      :key="framework.value"
-                      :value="framework.value"
-                      @select="(ev) => {
-                if (typeof ev.detail.value === 'string') {
-                  value = ev.detail.value
-                }
-                open3 = false
-              }"
-                  >
-                    {{ framework.label }}
-                    <RiMenLine
-                        :class="cn(
-                  'ml-auto h-4 w-4',
-                  value === framework.value ? 'opacity-100' : 'opacity-0',
-                )"
-                    />
-                  </CommandItem>
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </PopoverContent>
-        </Popover>
+        <TravellerCounter v-model="traver" />
       </div>
 
       <div>
